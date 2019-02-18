@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb88c0f22f0ccd608b46e59b61dc1102",
+  "content-hash": "be9e7594aadcb77d904fe799c778da93",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -376,22 +376,22 @@
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
-            "version": "2.7.0-beta1",
+          "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
-                "reference": "789360570d53c88d446c0193947e269267bfbba8"
+              "reference": "c96336e1960ebc6c1e72487a7c6ca1a1589519fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/789360570d53c88d446c0193947e269267bfbba8",
-                "reference": "789360570d53c88d446c0193947e269267bfbba8",
+              "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/c96336e1960ebc6c1e72487a7c6ca1a1589519fe",
+              "reference": "c96336e1960ebc6c1e72487a7c6ca1a1589519fe",
                 "shasum": ""
             },
             "require": {
                 "almasaeed2010/adminlte": "^2.4.0",
                 "cebe/yii2-gravatar": "1.*",
-                "rmrevin/yii2-fontawesome": "~3.1",
+              "rmrevin/yii2-fontawesome": "~2.9",
                 "yiisoft/yii2": "2.*",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
@@ -432,7 +432,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2018-08-27T07:20:52+00:00"
+          "time": "2018-07-24T14:47:13+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -599,27 +599,71 @@
             "time": "2018-02-23T01:58:20+00:00"
         },
         {
+          "name": "fortawesome/font-awesome",
+          "version": "v4.7.0",
+          "source": {
+            "type": "git",
+            "url": "https://github.com/FortAwesome/Font-Awesome.git",
+            "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a8386aae19e200ddb0f6845b5feeee5eb7013687",
+            "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687",
+            "shasum": ""
+          },
+          "require-dev": {
+            "jekyll": "1.0.2",
+            "lessc": "1.4.2"
+          },
+          "type": "library",
+          "extra": {
+            "branch-alias": {
+              "dev-master": "4.6.x-dev"
+            }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "OFL-1.1",
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "Dave Gandy",
+              "email": "dave@fontawesome.io",
+              "homepage": "http://twitter.com/davegandy",
+              "role": "Developer"
+            }
+          ],
+          "description": "The iconic font and CSS framework",
+          "homepage": "http://fontawesome.io/",
+          "keywords": [
+            "FontAwesome",
+            "awesome",
+            "bootstrap",
+            "font",
+            "icon"
+          ],
+          "time": "2016-10-24T15:52:54+00:00"
+        },
+      {
             "name": "rmrevin/yii2-fontawesome",
-            "version": "3.x-dev",
+        "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rmrevin/yii2-fontawesome.git",
-                "reference": "a1b448cef7e03a0b5a6286276bef004efa83f323"
+              "reference": "2ebb38f62727a46dcd06d27bb73c4a5833b54f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/a1b448cef7e03a0b5a6286276bef004efa83f323",
-                "reference": "a1b448cef7e03a0b5a6286276bef004efa83f323",
+              "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/2ebb38f62727a46dcd06d27bb73c4a5833b54f74",
+              "reference": "2ebb38f62727a46dcd06d27bb73c4a5833b54f74",
                 "shasum": ""
             },
             "require": {
+              "fortawesome/font-awesome": "~4.7",
                 "php": ">=5.4.0",
-                "yiisoft/yii2": "^2.0.0"
-            },
-            "require-dev": {
-                "doctrine/instantiator": "1.0.*",
-                "phpdocumentor/reflection-docblock": "~3.1.0",
-                "phpunit/phpunit": "^4.8"
+              "yiisoft/yii2": "2.0.*"
             },
             "type": "yii2-extension",
             "extra": {
@@ -652,7 +696,7 @@
                 "font",
                 "yii"
             ],
-            "time": "2018-04-01T12:51:52+00:00"
+        "time": "2017-04-03T14:19:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -957,12 +1001,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "6bb8eac90b57eb5426fa1be2bc52e18cce415d02"
+              "reference": "f6921f4a8626d3ba37b71d5ed692ba87170ab3c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/6bb8eac90b57eb5426fa1be2bc52e18cce415d02",
-                "reference": "6bb8eac90b57eb5426fa1be2bc52e18cce415d02",
+              "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/f6921f4a8626d3ba37b71d5ed692ba87170ab3c9",
+              "reference": "f6921f4a8626d3ba37b71d5ed692ba87170ab3c9",
                 "shasum": ""
             },
             "require": {
@@ -1049,7 +1093,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-02-15T13:05:25+00:00"
+          "time": "2019-02-17T15:33:29+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1057,18 +1101,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "5ad34490ba50107131ea7259d8f1c51028cedeb4"
+              "reference": "454552b7a90e2a803def733e4d1f612b850158da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/5ad34490ba50107131ea7259d8f1c51028cedeb4",
-                "reference": "5ad34490ba50107131ea7259d8f1c51028cedeb4",
+              "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/454552b7a90e2a803def733e4d1f612b850158da",
+              "reference": "454552b7a90e2a803def733e4d1f612b850158da",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.4.* | 3.3.* | 3.2.* | 3.1.*",
                 "yiisoft/yii2": "~2.0.6"
             },
+          "require-dev": {
+            "phpunit/phpunit": "<7"
+          },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
@@ -1109,7 +1156,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2019-01-29T21:40:10+00:00"
+          "time": "2019-02-17T13:23:56+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1171,18 +1218,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
-                "reference": "a9544a93c7851330f53013bc6abdc5e748fd91c5"
+              "reference": "da440aba4d518a9ffa08c2d18a657a54a28919c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/a9544a93c7851330f53013bc6abdc5e748fd91c5",
-                "reference": "a9544a93c7851330f53013bc6abdc5e748fd91c5",
+              "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/da440aba4d518a9ffa08c2d18a657a54a28919c9",
+              "reference": "da440aba4d518a9ffa08c2d18a657a54a28919c9",
                 "shasum": ""
             },
             "require": {
                 "swiftmailer/swiftmailer": "~6.0",
                 "yiisoft/yii2": ">=2.0.4"
             },
+          "require-dev": {
+            "phpunit/phpunit": "<7"
+          },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
@@ -1213,7 +1263,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2018-09-23T22:01:14+00:00"
+          "time": "2019-02-17T15:30:12+00:00"
         }
     ],
     "packages-dev": [
@@ -2449,6 +2499,7 @@
                 "mock",
                 "xunit"
             ],
+          "abandoned": true,
             "time": "2018-09-09T05:48:43+00:00"
         },
         {
@@ -3897,12 +3948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "bfe6044f7ee8089923c0bbfda7394a94925c4b0e"
+              "reference": "505c92d978ad06c763d0db536e99580a732d8e94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/bfe6044f7ee8089923c0bbfda7394a94925c4b0e",
-                "reference": "bfe6044f7ee8089923c0bbfda7394a94925c4b0e",
+              "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/505c92d978ad06c763d0db536e99580a732d8e94",
+              "reference": "505c92d978ad06c763d0db536e99580a732d8e94",
                 "shasum": ""
             },
             "require": {
@@ -3940,7 +3991,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2019-02-02T20:01:31+00:00"
+          "time": "2019-02-17T13:19:07+00:00"
         }
     ],
     "aliases": [],
