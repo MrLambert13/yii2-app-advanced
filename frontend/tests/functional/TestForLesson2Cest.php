@@ -22,8 +22,9 @@ class TestForLesson2Cest
      */
     public function tryRun(FunctionalTester $I, \Codeception\Example $data) {
         $I->amOnRoute($data['url']);
-        $I->seeInTitle($data['title']);
 
+        $I->see($data['title'], 'li.active a');
+        //Либо так $I->see($data['title'], ['css' => 'li.active a']);
     }
 
     /**
@@ -31,7 +32,7 @@ class TestForLesson2Cest
      */
     protected function pageProvider() {
         return [
-            ['url' => 'site/index', 'title' => 'My Yii Application'],
+            ['url' => 'site/index', 'title' => 'Home'],
             ['url' => 'site/about', 'title' => 'About'],
             ['url' => 'site/contact', 'title' => 'Contact'],
             ['url' => 'site/signup', 'title' => 'Signup'],
