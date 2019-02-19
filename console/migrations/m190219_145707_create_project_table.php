@@ -20,6 +20,7 @@ class m190219_145707_create_project_table extends Migration
             'updater_id' => $this->integer(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer(),
+
         ]);
     }
 

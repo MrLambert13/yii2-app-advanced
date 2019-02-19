@@ -24,9 +24,6 @@ class m190219_144418_create_task_table extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer(),
 
-            $this->addForeignKey('fx_task_user_1', 'task', ['executor_id'], 'user', ['id']),
-            $this->addForeignKey('fx_task_user_2', 'task', ['creator_id'], 'user', ['id']),
-            $this->addForeignKey('fx_task_user_3', 'task', ['updater_id'], 'user', ['id']),
         ]);
     }
 
