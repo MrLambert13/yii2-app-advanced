@@ -13,6 +13,6 @@ class TestForLesson2Cest
     }
 
     // tests
-    public function tryToTest(FunctionalTester $I) {
+    public function tryRun(FunctionalTester $I) {
     }
 }
