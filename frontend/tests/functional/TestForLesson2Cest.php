@@ -13,6 +13,29 @@ class TestForLesson2Cest
     }
 
     // tests
-    public function tryRun(FunctionalTester $I) {
+
+    /**
+     * @param FunctionalTester     $I
+     * @param \Codeception\Example $data
+     *
+     * @dataProvider pageProvider
+     */
+    public function tryRun(FunctionalTester $I, \Codeception\Example $data) {
+        $I->amOnRoute($data['url']);
+        $I->seeInTitle($data['title']);
+
+    }
+
+    /**
+     * @return array
+     */
+    protected function pageProvider() {
+        return [
+            ['url' => 'site/index', 'title' => 'My Yii Application'],
+            ['url' => 'site/about', 'title' => 'About'],
+            ['url' => 'site/contact', 'title' => 'Contact'],
+            ['url' => 'site/signup', 'title' => 'Signup'],
+            ['url' => 'site/login', 'title' => 'Login'],
+        ];
     }
 }
