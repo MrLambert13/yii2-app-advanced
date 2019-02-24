@@ -2,7 +2,8 @@
 
 namespace common\models;
 
-use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "project".
@@ -28,11 +29,26 @@ class Project extends \yii\db\ActiveRecord
     }
 
     /**
+     * @return array
+     */
+    public function behaviors() {
+
+        return [
+            TimestampBehavior::class,
+            [
+                'class' => BlameableBehavior::class,
+                'createdByAttribute' => 'creator_id',
+                'updatedByAttribute' => 'updater_id',
+            ],
+        ];
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function rules() {
         return [
-            [['title', 'description', 'creator_id', 'created_at'], 'required'],
+            [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['active', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],

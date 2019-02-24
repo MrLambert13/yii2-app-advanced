@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'active',
             'creator_id',
-            //'updater_id',
-            //'created_at',
-            //'updated_at',
+            'updater_id',
+            'created_at',
+            'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

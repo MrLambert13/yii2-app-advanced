@@ -22,4 +22,5 @@ conn.onmessage = function (e) {
 
 btn.on('click', function () {
   conn.send(msg.val());
+  msg.val('');
 });

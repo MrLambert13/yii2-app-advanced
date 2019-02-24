@@ -43,7 +43,8 @@ if (Yii::$app->controller->action->id === 'login') {
 
       <?= $this->render(
           'header.php',
-          ['directoryAsset' => $directoryAsset]
+          ['directoryAsset' => $directoryAsset,
+          ]
       ) ?>
 
       <?= $this->render(
