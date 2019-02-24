@@ -10,5 +10,9 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
-//    'language' => 'ru',
+    'modules' => [
+        'chat' => [
+            'class' => common\modules\chat\Module::class,
+        ],
+    ],
 ];
