@@ -1,11 +1,13 @@
 var websocketPort = wsPort ? wsPort : 8080,
-  conn = new WebSocket('ws://localhost:' + websocketPort),
-  idMessage = 'chatMessages';
+  conn = new WebSocket('ws://localhost:' + websocketPort);
 
-var conn = new WebSocket('ws://localhost:8080');
+var btn = $('#chatSendButton');
+var msg = $('#chatSendMessage');
+var list = $('#chatMessage');
 
 conn.onopen = function (e) {
   console.log("Connection established!");
+
 };
 
 conn.onerror = function (e) {
@@ -13,7 +15,11 @@ conn.onerror = function (e) {
 };
 
 conn.onmessage = function (e) {
-  document.getElementById(idMessage.value).value = e.data + '\n' +
-    document.getElementById(idMessage).value;
+  list.val(e.data + '\n' + list.val());
   console.log(e.data);
 };
+
+
+btn.on('click', function () {
+  conn.send(msg.val());
+});

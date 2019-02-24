@@ -2,7 +2,7 @@
 
 namespace common\modules\chat\widgets;
 
-
+use common\modules\chat\assets\ChatAsset;
 use yii\bootstrap\Widget;
 
 class Chat extends Widget
@@ -11,10 +11,11 @@ class Chat extends Widget
 
     public function init() {
         ChatAsset::register($this->view);
+        $this->view->registerJsVar('wsPort', $this->port);
+
     }
 
     public function run() {
-        //$this->view->registerJsVar('wsPort', $this->port);
 
         return $this->render('chat');
     }
