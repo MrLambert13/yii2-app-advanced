@@ -10,10 +10,10 @@ use yii\behaviors\TimestampBehavior;
  * @property int    $id
  * @property string $title
  * @property string $description
- * @property int    $project_id
- * @property int    $executor_id
- * @property int    $started_at
- * @property int    $completed_at
+ * // * @property int $project_id
+ * // * @property int $executor_id
+ * // * @property int $started_at
+ * // * @property int $completed_at
  * @property int    $creator_id
  * @property int    $updater_id
  * @property int    $created_at
