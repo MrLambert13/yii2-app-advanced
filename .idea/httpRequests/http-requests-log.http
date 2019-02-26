@@ -1,0 +1,84 @@
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-26T044125.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-26T043610.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-26T043226.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-26T042837.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users
+Content-Type: application/json
+
+<> 2019-02-26T042820.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-26T034531.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/tasks
+Content-Type: application/json
+
+<> 2019-02-26T034437.404.html
+
+###
+
+GET http://y2aa-frontend.test/api/projects
+Content-Type: application/json
+
+<> 2019-02-26T034416.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users
+Content-Type: application/json
+
+<> 2019-02-26T034353.200.json
+
+###
+
+POST http://y2aa-frontend.test/api/projects
+Content-Type: application/json
+
+{
+  "title": "Проект 3",
+  "description": "бла бла бла",
+  "active": 10,
+  "creator_id": 1,
+  "updater_id": 1,
+  "created_at": 1551041134,
+  "updated_at": 1551041134
+}
+
+<> 2019-02-26T015831.400.json
+
+###
+
+GET http://y2aa-frontend.test/api/tasks
+Content-Type: application/json
+
+###

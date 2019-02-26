@@ -3,7 +3,7 @@
 namespace frontend\modules\api\controllers;
 
 
-use common\models\User;
+use frontend\modules\api\models\User;
 use yii\rest\ActiveController;
 
 /**

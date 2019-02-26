@@ -21,11 +21,13 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string  $password write-only password
+ * @property Task[]  $tasks
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const RELATION_TASKS = 'tasks';
 
 
     /**
@@ -183,7 +185,18 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getTasks() {
-        return $this->hasMany(Task::className(), ['creator_id' => 'id']);
+        return $this->hasMany(\frontend\modules\api\models\Task::className(), ['creator_id' => 'id']);
     }
+
+    /**
+     * @return array|false
+     */
+    public function extraFields() {
+        return [self::RELATION_TASKS];
+    }
+
 }

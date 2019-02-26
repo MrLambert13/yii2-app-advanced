@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "username": "Admin",
+    "auth_key": "WkQWTSTUkUdLgDDySyHapmrqcRrEwB9q",
+    "password_hash": "$2y$13$RvAghNEWz0OaU.Rh0XiMMOfaoxssufLT4LJqEnjqAeItsqXhUgd56",
+    "password_reset_token": null,
+    "email": "Lam_13@mail.ru",
+    "access_token": null,
+    "avatar": null,
+    "status": 10,
+    "created_at": 1550242533,
+    "updated_at": 1550242533,
+    "tasks": [
+      {
+        "id": 1,
+        "title": "my new task",
+        "description_short": "qwdad"
+      }
+    ]
+  }
+]
