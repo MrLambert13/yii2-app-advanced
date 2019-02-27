@@ -4,8 +4,6 @@ namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
-use yii\behaviors\BlameableBehavior;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -21,13 +19,15 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string  $password write-only password
- * @property Task[]  $tasks
+ * @property Task[]  $createdTasks
+ * @property Task[]  $activedTasks
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-    const RELATION_TASKS = 'tasks';
+    const RELATION_CREATED_TASKS = 'createdTasks';
+    const RELATION_ACTIVED_TASKS = 'activedTasks';
 
 
     /**
@@ -35,21 +35,6 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName() {
         return '{{%user}}';
-    }
-
-    /**
-     * @return array
-     */
-    public function behaviors() {
-
-        return [
-            TimestampBehavior::class,
-            [
-                'class' => BlameableBehavior::class,
-                'createdByAttribute' => 'creator_id',
-                'updatedByAttribute' => 'updater_id',
-            ],
-        ];
     }
 
     /**
@@ -188,15 +173,18 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTasks() {
-        return $this->hasMany(\frontend\modules\api\models\Task::className(), ['creator_id' => 'id']);
+    public function getCreatedTasks() {
+        return $this->hasMany(Task::className(), ['creator_id' => 'id']);
     }
 
     /**
-     * @return array|false
+     * @return \yii\db\ActiveQuery
      */
-    public function extraFields() {
-        return [self::RELATION_TASKS];
+    public function getActivedTasks() {
+        return $this->hasMany(Task::className(), ['executor_id' => 'id']);
     }
+
+
+
 
 }

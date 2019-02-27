@@ -1,3 +1,115 @@
+GET http://y2aa-frontend.test/api/users?expand=activedTasks
+Content-Type: application/json
+
+<> 2019-02-27T101658.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=activedTasks
+Content-Type: application/json
+
+<> 2019-02-27T101635.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=activedTasks
+Content-Type: application/json
+
+<> 2019-02-27T101609.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=createdTasks
+Content-Type: application/json
+
+<> 2019-02-27T101557.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=createdtasks
+Content-Type: application/json
+
+<> 2019-02-27T101330.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=createdtasks
+Content-Type: application/json
+
+<> 2019-02-27T101236.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=activetasks
+Content-Type: application/json
+
+<> 2019-02-27T100227.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=activetasks
+Content-Type: application/json
+
+<> 2019-02-27T095950.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=activetasks
+Content-Type: application/json
+
+<> 2019-02-27T095930.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=activetasks
+Content-Type: application/json
+
+<> 2019-02-27T095312.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=createdtasks
+Content-Type: application/json
+
+<> 2019-02-27T092019.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-27T085851.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-27T085835.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-27T085448.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-27T085401.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/users?expand=tasks
+Content-Type: application/json
+
+<> 2019-02-27T085301.200.json
+
+###
+
 GET http://y2aa-frontend.test/api/users?expand=tasks
 Content-Type: application/json
 

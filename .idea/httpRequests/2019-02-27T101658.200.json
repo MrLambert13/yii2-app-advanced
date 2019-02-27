@@ -1,0 +1,39 @@
+[
+  {
+    "username": "Admin",
+    "email": "Lam_13@mail.ru",
+    "activedTasks": []
+  },
+  {
+    "username": "user2",
+    "email": "user2@mail.ru",
+    "activedTasks": [
+      {
+        "id": 2,
+        "title": "qwe",
+        "description": "у уфа sefasfsaef asef asfd asdfasdfb asdkfasciash asdkfjaskd askdhg ahaslkj skajdfkas' jdfkasjdf asjdfksjd sjdfk asd;kfj asdkjf skdjf a;skdjfasdkfjs влоа лдфыволды",
+        "project_id": 4,
+        "executor_id": 2,
+        "started_at": 2,
+        "completed_at": null,
+        "creator_id": 2,
+        "updater_id": 2,
+        "created_at": 1551244149,
+        "updated_at": 1551244149
+      },
+      {
+        "id": 3,
+        "title": "check 2",
+        "description": "description lkjasdhf lkajdhflkj рва овар \r\nфыва hasjdfh laskjdhf\r\n asdh fjkshf asd\r\nа фыровла р",
+        "project_id": 1,
+        "executor_id": 2,
+        "started_at": 2,
+        "completed_at": null,
+        "creator_id": 2,
+        "updater_id": 2,
+        "created_at": 1551244203,
+        "updated_at": 1551244203
+      }
+    ]
+  }
+]
