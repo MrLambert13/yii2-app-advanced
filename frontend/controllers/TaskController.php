@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\models\User;
+use frontend\modules\api\models\Project;
 use Yii;
 use common\models\Task;
 use common\models\search\TaskSearch;
@@ -74,12 +76,16 @@ class TaskController extends Controller
     public function actionCreate() {
         $model = new Task();
 
+        $listProjects = Project::find()->where(['creator_id' => Yii::$app->user->id])->select('id, title');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'projects' => $listProjects,
+
         ]);
     }
 

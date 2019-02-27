@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\Task */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $listProjects \common\models\Project */
 ?>
 
 <div class="task-form">
@@ -16,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'project_id')->textInput() ?>
+    <?= $form->field($model, 'project_id')->textInput(); ?>
 
     <?= $form->field($model, 'executor_id')->textInput() ?>
 
