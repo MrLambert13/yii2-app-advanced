@@ -1,4 +1,74 @@
-GET http://y2aa-frontend.test/api/users?expand=activedTasks
+GET http://y2aa-frontend.test/api/task/view?id=1
+Content-Type: application/json
+
+<> 2019-02-27T114144.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/task/view/1
+Content-Type: application/json
+
+<> 2019-02-27T114128.404.html
+
+###
+
+GET http://y2aa-frontend.test/api/task/view?id=1
+Content-Type: application/json
+
+<> 2019-02-27T113849.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T113836.500.json
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T113810.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T113741.404.html
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T113733.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T113716.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T113704.500.html
+
+###
+
+GET http://y2aa-frontend.test/api/task
+Content-Type: application/json
+
+<> 2019-02-27T111843.200.json
+
+###
+
+GET http://y2aa-frontend.test/api/tasks?expand=project
 Content-Type: application/json
 
 <> 2019-02-27T101658.200.json

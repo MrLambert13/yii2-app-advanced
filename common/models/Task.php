@@ -6,24 +6,24 @@ use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "task".
- * @property int    $id
- * @property string $title
- * @property string $description
- * @property int    $project_id
- * @property int    $executor_id
- * @property int    $started_at
- * @property int    $completed_at
- * @property int    $creator_id
- * @property int    $updater_id
- * @property int    $created_at
- * @property int    $updated_at
- * @property User   $executor
- * @property User   $creator
- * @property User   $updater
+ * Task model
+ * @property integer $id
+ * @property string  $title
+ * @property string  $description
+ * @property integer $project_id
+ * @property integer $executor_id
+ * @property integer $started_at
+ * @property integer $completed_at
+ * @property integer $creator_id
+ * @property integer $updater_id
+ * @property integer $created_at
+ * @property integer $updated_at
+ * @property Project $project
  */
 class Task extends \yii\db\ActiveRecord
 {
+    const RELATION_PROJECT = 'project';
+
     /**
      * {@inheritdoc}
      */
@@ -99,6 +99,13 @@ class Task extends \yii\db\ActiveRecord
      */
     public function getUpdater() {
         return $this->hasOne(User::className(), ['id' => 'updater_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProject() {
+        return $this->hasOne(Project::className(), ['id' => 'project_id']);
     }
 
     /**

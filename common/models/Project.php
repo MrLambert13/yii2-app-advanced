@@ -18,9 +18,12 @@ use yii\behaviors\TimestampBehavior;
  * @property User          $creator
  * @property User          $updater
  * @property ProjectUser[] $projectUsers
+ * @property Task[]        $tasks
  */
 class Project extends \yii\db\ActiveRecord
 {
+    const RELATION_TASKS = 'tasks';
+
     /**
      * {@inheritdoc}
      */
@@ -92,6 +95,13 @@ class Project extends \yii\db\ActiveRecord
      */
     public function getProjectUsers() {
         return $this->hasMany(ProjectUser::className(), ['project_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTasks() {
+        return $this->hasMany(Task::className(), ['project_id' => 'id']);
     }
 
     /**

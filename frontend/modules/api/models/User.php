@@ -3,19 +3,7 @@
 namespace frontend\modules\api\models;
 
 /**
- * User model
- * @property integer $id
- * @property string  $username
- * @property string  $password_hash
- * @property string  $password_reset_token
- * @property string  $email
- * @property string  $auth_key
- * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
- * @property string  $password write-only password
- * @property Task[]  $createdTasks
- * @property Task[]  $activedTasks
+ * {@inheritdoc}
  */
 class User extends \common\models\User
 {
@@ -31,8 +19,16 @@ class User extends \common\models\User
      */
     public function extraFields() {
         return [
+            //GET http://y2aa-frontend.test/api/users?expand=createdTasks
             self::RELATION_CREATED_TASKS,
+            //GET http://y2aa-frontend.test/api/users?expand=activedTasks
             self::RELATION_ACTIVED_TASKS,
+            //GET http://y2aa-frontend.test/api/users?expand=updatedTasks
+            self::RELATION_UPDATED_TASKS,
+            //GET http://y2aa-frontend.test/api/users?expand=createdProjects
+            self::RELATION_CREATED_PROJECTS,
+            //GET http://y2aa-frontend.test/api/users?expand=updatedProjects
+            self::RELATION_UPDATED_PROJECTS,
 
         ];
     }

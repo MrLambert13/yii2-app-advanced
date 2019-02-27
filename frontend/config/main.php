@@ -46,7 +46,6 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/user'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
-
             ],
         ],
     ],
