@@ -27,11 +27,10 @@ class Project extends \common\models\Project
         return [
             'id',
             'title',
-            //TODO mbstring
             'description_short' => function (Project $model) {
                 //description_short (обрезанный до 50 символов description);
                 //не ВЕРНУТЬ до 50 символов, а ОБРЕЗАТЬ до 50. Т.е. длина = 50
-                return substr($model->description, 0, 50);
+                return mb_substr($model->description, 0, 50);
             },
             'active'
         ];
