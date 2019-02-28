@@ -13,7 +13,7 @@ class Project extends \common\models\Project
      */
     public function extraFields() {
         /**
-         * GET http://y2aa-frontend.test/api/project?expand=tasks
+         * GET http://y2aa-frontend.test/api/projects?expand=tasks
          */
         return [
             self::RELATION_TASKS,
