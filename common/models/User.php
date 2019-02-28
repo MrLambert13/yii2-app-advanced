@@ -22,8 +22,11 @@ use yii\web\IdentityInterface;
  * @property Task[]    $createdTasks
  * @property Task[]    $activedTasks
  * @property Task[]    $updatedTasks
+ * @property Task[]    $completedTasks
  * @property Project[] $createdProjects
  * @property Project[] $updatedProjects
+ * @property Project[] $projectUsers
+ * @property Project[] $accessedProjects
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -32,8 +35,11 @@ class User extends ActiveRecord implements IdentityInterface
     const RELATION_CREATED_TASKS = 'createdTasks';
     const RELATION_ACTIVED_TASKS = 'activedTasks';
     const RELATION_UPDATED_TASKS = 'updatedTasks';
+    const RELATION_COMPLETED_TASKS = 'completedTasks';
     const RELATION_CREATED_PROJECTS = 'createdProjects';
     const RELATION_UPDATED_PROJECTS = 'updatedProjects';
+    const RELATION_PROJECT_USERS = 'projectUsers';
+    const RELATION_ACCESSED_PROJECTS = '$accessedProjects';
 
 
     /**
@@ -177,6 +183,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Get created tasks by user
      * @return \yii\db\ActiveQuery
      */
     public function getCreatedTasks() {
@@ -184,6 +191,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Get active tasks for user
      * @return \yii\db\ActiveQuery
      */
     public function getActivedTasks() {
@@ -191,6 +199,15 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Get completed tasks by user
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompletedTasks() {
+        return $this->hasMany(Task::className(), ['completed_id' => 'id']);
+    }
+
+    /**
+     * Get updated tasks by user
      * @return \yii\db\ActiveQuery
      */
     public function getUpdatedTasks() {
@@ -198,6 +215,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Get created projects by user
      * @return \yii\db\ActiveQuery
      */
     public function getCreatedProjects() {
@@ -205,10 +223,27 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Get updated projects by user
      * @return \yii\db\ActiveQuery
      */
     public function getUpdatedProjects() {
         return $this->hasMany(Project::className(), ['updater_id' => 'id']);
     }
 
+    /**
+     * Get numbers of projects accessed for user
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjectUsers() {
+        return $this->hasMany(ProjectUser::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * Get projects accessed for user
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAccessedProjects() {
+        return $this->hasMany(Project::className(), ['id' => 'project_id'])
+            ->via($this::RELATION_PROJECT_USERS);
+    }
 }

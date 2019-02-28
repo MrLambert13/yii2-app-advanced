@@ -77,6 +77,7 @@ class Project extends \yii\db\ActiveRecord
     }
 
     /**
+     * Get author of task
      * @return \yii\db\ActiveQuery
      */
     public function getCreator() {
@@ -84,6 +85,7 @@ class Project extends \yii\db\ActiveRecord
     }
 
     /**
+     * Get updater of task
      * @return \yii\db\ActiveQuery
      */
     public function getUpdater() {
@@ -91,6 +93,7 @@ class Project extends \yii\db\ActiveRecord
     }
 
     /**
+     * Get accessed users for project
      * @return \yii\db\ActiveQuery
      */
     public function getProjectUsers() {
