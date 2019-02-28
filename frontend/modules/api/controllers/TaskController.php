@@ -15,7 +15,7 @@ class TaskController extends Controller
 
     public function actionIndex() {
         /**
-         * GET http://y2aa-frontend.test/api/task
+         * GET http://y2aa-frontend.test/api/tasks
          */
         return new ActiveDataProvider([
             'query' => Task::find()
@@ -24,7 +24,7 @@ class TaskController extends Controller
 
     public function actionView($id) {
         /**
-         * GET http://y2aa-frontend.test/api/task/view?id=1
+         * GET http://y2aa-frontend.test/api/tasks/view?id=1
          */
         return Task::findOne($id);
     }
