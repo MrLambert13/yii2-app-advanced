@@ -19,7 +19,7 @@ use yii\web\IdentityInterface;
  * @property integer   $status
  * @property integer   $created_at
  * @property integer   $updated_at
- * @property string    $password write-only password
+ * @property string    $password
  * @property Task[]    $createdTasks
  * @property Task[]    $activedTasks
  * @property Task[]    $updatedTasks
@@ -31,8 +31,21 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    private $password;
+
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const STATUSES = [self::STATUS_DELETED, self::STATUS_ACTIVE];
+    const STATUS_LABELS = [
+        self::STATUS_DELETED => 'Deleted',
+        self::STATUS_ACTIVE => 'Active'
+    ];
+    const SCENARIO_INSERT = 'insert';
+    const SCENARIO_UPDATE = 'update';
+    const AVATAR_ICO = 'ico';
+    const AVATAR_PREVIEW = 'preview';
+
+
     const RELATION_CREATED_TASKS = 'createdTasks';
     const RELATION_ACTIVED_TASKS = 'activedTasks';
     const RELATION_UPDATED_TASKS = 'updatedTasks';
@@ -53,21 +66,23 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors() {
 
         return [
-            TimestampBehavior::class,
+            TimestampBehavior::className(),
         ];
     }
+
     /**
      * {@inheritdoc}
      */
     public function rules() {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email', 'access_token', 'avatar'], 'string', 'max' => 255],
-            [['auth_key'], 'string', 'max' => 32],
+            [['username', 'email'], 'required'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => self::STATUSES],
+            [['username', 'email', 'auth_key', 'password'], 'safe'],
+            ['avatar', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => [self::SCENARIO_UPDATE]],
+            [['username', 'email', 'avatar'], 'string', 'max' => 255],
             [['username'], 'unique'],
             [['email'], 'unique'],
-            [['password_reset_token'], 'unique'],
         ];
     }
 
@@ -170,7 +185,19 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $password
      */
     public function setPassword($password) {
-        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+        if ($password) {
+            $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+            $this->generateAuthKey();
+        }
+        $this->password = $password;
+    }
+
+    /**
+     * Return password value
+     * @return string
+     */
+    public function getPassword() {
+        return $this->password;
     }
 
     /**

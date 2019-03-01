@@ -30,7 +30,7 @@ return [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],
@@ -42,6 +42,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
+                '<action:\w+>' => 'site/<action>',
+                //'<controller:[\w-]+>s' => '<controller>/index',
+                '<controller:[\w-]+>s/<id:\d+>' => '<controller>/view',
+                '<controller:[\w-]+>s/<action:(create|update|delete)>/<id:\d+>' => '<controller>/<action>',
             ],
         ],
     ],

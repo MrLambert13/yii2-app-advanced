@@ -12,9 +12,25 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'username')->textInput() ?>
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+
+    <?php //$form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
+
+    <?php //$form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?php //$form->field($model, 'access_token')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'avatar')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'status')->dropDownList(\common\models\User::STATUS_LABELS) ?>
+
+    <?php //$form->field($model, 'created_at')->textInput() ?>
+
+    <?php //$form->field($model, 'updated_at')->textInput() ?>
 
   <div class="form-group">
       <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
