@@ -18,7 +18,7 @@ return [
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => common\models\User::class,
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
@@ -43,10 +43,10 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
-                '<action:\w+>' => 'site/<action>',
-                //'<controller:\w+>s' => '<controller>/index',
+                //'<action:\w+>' => 'site/<action>',
+                '<controller:\w+>s' => '<controller>/index',
                 '<controller:[\w-]+>s/<id:\d+>' => '<controller>/view',
-                '<controller:[\w-]+>s/<action:(create|update|delete)>/<id:\d+>' => '<controller>/<action>',
+                '<controller:[\w-]+>s/<action:\w+>/<id:\d+>' => '<controller>/<action>',
             ],
         ],
     ],
