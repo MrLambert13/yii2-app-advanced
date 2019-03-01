@@ -44,7 +44,7 @@ return [
             'rules' => [
                 '/' => 'site/index',
                 '<action:\w+>' => 'site/<action>',
-                //'<controller:[\w-]+>s' => '<controller>/index',
+                //'<controller:\w+>s' => '<controller>/index',
                 '<controller:[\w-]+>s/<id:\d+>' => '<controller>/view',
                 '<controller:[\w-]+>s/<action:(create|update|delete)>/<id:\d+>' => '<controller>/<action>',
             ],
