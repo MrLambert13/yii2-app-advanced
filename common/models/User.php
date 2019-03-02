@@ -67,6 +67,19 @@ class User extends ActiveRecord implements IdentityInterface
 
         return [
             TimestampBehavior::className(),
+            [
+                'class' => \mohorev\file\UploadImageBehavior::class,
+                'attribute' => 'image',
+                'scenarios' => [self::SCENARIO_UPDATE],
+                //'placeholder' => '@app/modules/user/assets/images/userpic.jpg',
+                'path' => '@frontend/web/upload/user/{id}',
+                'url' => Yii::$app->params['hosts.front'] .
+                    Yii::getAlias('@web/upload/user/{id}'),
+                'thumbs' => [
+                    self::AVATAR_ICO => ['width' => 40, 'quality' => 90],
+                    self::AVATAR_PREVIEW => ['width' => 200, 'height' => 200],
+                ],
+            ],
         ];
     }
 
