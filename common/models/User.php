@@ -86,6 +86,10 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function beforeSave() {
+        $this->generateAuthKey();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -187,7 +191,6 @@ class User extends ActiveRecord implements IdentityInterface
     public function setPassword($password) {
         if ($password) {
             $this->password_hash = Yii::$app->security->generatePasswordHash($password);
-            $this->generateAuthKey();
         }
         $this->password = $password;
     }
