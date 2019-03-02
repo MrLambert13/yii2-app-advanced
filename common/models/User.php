@@ -67,6 +67,19 @@ class User extends ActiveRecord implements IdentityInterface
 
         return [
             TimestampBehavior::className(),
+            [
+                'class' => \mohorev\file\UploadImageBehavior::class,
+                'attribute' => 'image',
+                'scenarios' => ['insert', 'update'],
+                'placeholder' => '@app/modules/user/assets/images/userpic.jpg',
+                'path' => '@webroot/upload/user/{id}',
+                'url' => '@web/upload/user/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 400, 'quality' => 90],
+                    'preview' => ['width' => 200, 'height' => 200],
+                    'news_thumb' => ['width' => 200, 'height' => 200, 'bg_color' => '000'],
+                ],
+            ],
         ];
     }
 
