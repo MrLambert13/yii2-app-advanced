@@ -70,14 +70,14 @@ class User extends ActiveRecord implements IdentityInterface
             [
                 'class' => \mohorev\file\UploadImageBehavior::class,
                 'attribute' => 'image',
-                'scenarios' => ['insert', 'update'],
-                'placeholder' => '@app/modules/user/assets/images/userpic.jpg',
-                'path' => '@webroot/upload/user/{id}',
-                'url' => '@web/upload/user/{id}',
+                'scenarios' => [self::SCENARIO_UPDATE],
+                //'placeholder' => '@app/modules/user/assets/images/userpic.jpg',
+                'path' => '@frontend/web/upload/user/{id}',
+                'url' => Yii::$app->params['hosts.front'] .
+                    Yii::getAlias('@web/upload/user/{id}'),
                 'thumbs' => [
-                    'thumb' => ['width' => 400, 'quality' => 90],
-                    'preview' => ['width' => 200, 'height' => 200],
-                    'news_thumb' => ['width' => 200, 'height' => 200, 'bg_color' => '000'],
+                    self::AVATAR_ICO => ['width' => 40, 'quality' => 90],
+                    self::AVATAR_PREVIEW => ['width' => 200, 'height' => 200],
                 ],
             ],
         ];
