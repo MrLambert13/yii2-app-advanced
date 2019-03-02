@@ -44,13 +44,14 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
-                //'<action:\w+>' => '/site/<action>',
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/user'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
                 '<controller:[\w-]+>s' => '<controller>/index',
                 '<controller:[\w-]+>s/<id:\d+>' => '<controller>/view',
                 '<controller:[\w-]+>s/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<action:\w+>' => '/site/<action>',
+
             ],
         ],
     ],
