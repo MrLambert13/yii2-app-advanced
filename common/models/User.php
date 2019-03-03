@@ -41,6 +41,7 @@ class User extends ActiveRecord implements IdentityInterface
     public $updated_date;
     public $updated_date_end;
 
+    const ADMIN_ID = 1;
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
     const STATUSES = [self::STATUS_ACTIVE, self::STATUS_DELETED];

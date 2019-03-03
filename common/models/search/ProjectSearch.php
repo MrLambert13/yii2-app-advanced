@@ -2,6 +2,7 @@
 
 namespace common\models\search;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -39,8 +40,11 @@ class ProjectSearch extends Project
      */
     public function search($params) {
         $currentUserId = Yii::$app->user->id;
-        $query = Project::find()->byCreator($currentUserId);
-        //$query = Project::find();
+        if ($currentUserId == User::ADMIN_ID) {
+            $query = Project::find();
+        } else {
+            $query = Project::find()->byCreator($currentUserId);
+        }
 
         // add conditions that should always apply here
 

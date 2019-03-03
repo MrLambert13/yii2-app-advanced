@@ -2,6 +2,7 @@
 
 namespace common\models\search;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -38,10 +39,13 @@ class TaskSearch extends Task
      * @return ActiveDataProvider
      */
     public function search($params) {
-        //$query = Task::find();
         $currentUserId = Yii::$app->user->id;
 
-        $query = Task::find()->byCreator($currentUserId);
+        if ($currentUserId == User::ADMIN_ID) {
+            $query = Task::find();
+        } else {
+            $query = Task::find()->byCreator($currentUserId);
+        }
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
