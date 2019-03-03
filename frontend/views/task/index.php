@@ -38,19 +38,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'attribute' => 'project_id',
-                'value' => function (\common\models\Task $model) {
-                    $project = \common\models\Project::find()->where(['id' => $model->id])->column();
-                    var_dump($project);
-                    return mb_substr($model->description, 0, 50);
-                }
+                'attribute' => 'Project',
+                'value' => 'project.title',
             ],
+            [
+                'attribute' => 'Executor',
+                'value' => 'executor.username',
+            ],
+            'started_at:datetime',
+            'completed_at:datetime',
 
-            'executor_id',
-            'started_at',
-            'completed_at',
-            //'creator_id',
-            'updater_id',
+            [
+                'attribute' => 'Updater',
+                'value' => 'updater.username',
+            ],
             'created_at:datetime',
             'updated_at:datetime',
 
