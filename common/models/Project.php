@@ -23,6 +23,13 @@ use yii\behaviors\TimestampBehavior;
 class Project extends \yii\db\ActiveRecord
 {
     const RELATION_TASKS = 'tasks';
+    const STATUS_COMPLETED = 0;
+    const STATUS_ACTIVE = 10;
+    const STATUSES = [self::STATUS_ACTIVE, self::STATUS_COMPLETED];
+    const STATUS_LABELS = [
+        self::STATUS_ACTIVE => 'Active',
+        self::STATUS_COMPLETED => 'Completed',
+    ];
 
     /**
      * {@inheritdoc}
@@ -54,6 +61,7 @@ class Project extends \yii\db\ActiveRecord
             [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['active', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
+            ['active', 'default', 'value' => 0],
             [['title'], 'string', 'max' => 255],
             [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator_id' => 'id']],
             [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updater_id' => 'id']],

@@ -30,15 +30,29 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description:ntext',
-            'project_id',
+            [
+                'attribute' => 'description',
+                'format' => 'ntext',
+                'value' => function (\common\models\Task $model) {
+                    return mb_substr($model->description, 0, 50);
+                }
+            ],
+            [
+                'attribute' => 'project_id',
+                'value' => function (\common\models\Task $model) {
+                    $project = \common\models\Project::find()->where(['id' => $model->id])->column();
+                    var_dump($project);
+                    return mb_substr($model->description, 0, 50);
+                }
+            ],
+
             'executor_id',
-            //'started_at',
-            //'completed_at',
+            'started_at',
+            'completed_at',
             //'creator_id',
-            //'updater_id',
-            //'created_at',
-            //'updated_at',
+            'updater_id',
+            'created_at:datetime',
+            'updated_at:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

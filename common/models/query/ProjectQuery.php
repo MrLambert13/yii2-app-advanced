@@ -28,4 +28,8 @@ class ProjectQuery extends \yii\db\ActiveQuery
     public function one($db = null) {
         return parent::one($db);
     }
+
+    public function byCreator($userId) {
+        return $this->andWhere(['creator_id' => $userId]);
+    }
 }

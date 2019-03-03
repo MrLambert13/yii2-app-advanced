@@ -48,8 +48,8 @@
                               'label' => 'Project',
                               'icon' => 'product-hunt',
                               'items' => [
-                                  ['label' => 'Show All', 'icon' => 'eye', 'url' => '/user/index',],
-                                  ['label' => 'create', 'icon' => 'plus', 'url' => '/user/create',],
+                                  ['label' => 'Show All', 'icon' => 'eye', 'url' => '/project/index',],
+                                  ['label' => 'create', 'icon' => 'plus', 'url' => '/project/create',],
                               ],
                           ],
                       ],
