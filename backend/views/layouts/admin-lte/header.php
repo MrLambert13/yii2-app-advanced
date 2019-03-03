@@ -174,8 +174,8 @@ use yii\helpers\Html;
                 alt="User Image"/>
 
               <p>
-                  <?= Yii::$app->user->identity->username ?> - <?= Yii::$app->user->identity->email ?>
-                <small>Member since <?= date('d-m-Y', Yii::$app->user->identity->created_at) ?> </small>
+                  <?= Yii::$app->user->identity->username; ?> - <?= Yii::$app->user->identity->email; ?>
+                <small>Member since <?= date('d-m-Y', Yii::$app->user->identity->created_at); ?> </small>
               </p>
             </li>
             <!-- Menu Body -->
@@ -195,7 +195,7 @@ use yii\helpers\Html;
               <div class="pull-left">
                   <?= Html::a(
                       'Profile',
-                      ['/user/' . Yii::$app->user->identity->id],
+                      ['/user/' . Yii::$app->user->id],
                       ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                   ) ?>
               </div>
