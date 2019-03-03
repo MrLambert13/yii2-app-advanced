@@ -40,7 +40,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'access_token',
             'avatar',
-            'status',
+            [
+                'attribute' => 'status',
+                'value' => function (\common\models\User $model) {
+                    return \common\models\User::STATUS_LABELS[$model->status];
+                },
+            ],
             'created_at:datetime',
             'updated_at:datetime',
         ],

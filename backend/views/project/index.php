@@ -30,12 +30,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description:ntext',
-            'active',
-            'creator_id',
-            'updater_id',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'description',
+                'format' => 'ntext',
+                'value' => function (\common\models\Project $model) {
+                    return mb_substr($model->description, 0, 50);
+                }
+            ],
+            [
+                'attribute' => 'active',
+                'value' => function (\common\models\Project $model) {
+                    return \common\models\Project::STATUS_LABELS[$model->active];
+                },
+                'filter' => \common\models\Project::STATUS_LABELS,
+            ],
+            [
+                'attribute' => 'Creator',
+                'value' => 'creator.username',
+            ],
+            [
+                'attribute' => 'Updater',
+                'value' => 'updater.username',
+            ],
+            'created_at:datetime',
+            'updated_at:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

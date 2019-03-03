@@ -30,15 +30,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description:ntext',
-            'project_id',
-            'executor_id',
-            //'started_at',
-            //'completed_at',
-            //'creator_id',
-            //'updater_id',
-            //'created_at',
-            //'updated_at',
+            [
+                'attribute' => 'description',
+                'format' => 'ntext',
+                'value' => function (\common\models\Task $model) {
+                    return mb_substr($model->description, 0, 50);
+                }
+            ],
+            [
+                'attribute' => 'Project',
+                'value' => 'project.title',
+            ],
+            [
+                'attribute' => 'Executor',
+                'value' => 'executor.username',
+            ],
+            'started_at:datetime',
+            'completed_at:datetime',
+
+            [
+                'attribute' => 'Updater',
+                'value' => 'updater.username',
+            ],
+            'created_at:datetime',
+            'updated_at:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

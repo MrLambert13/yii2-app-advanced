@@ -6,7 +6,6 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\Task */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $listProjects \common\models\Project */
 ?>
 
 <div class="task-form">

@@ -17,7 +17,7 @@ class TaskSearch extends Task
     public function rules() {
         return [
             [['id', 'project_id', 'executor_id', 'started_at', 'completed_at', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'description', 'project'], 'safe'],
+            [['title', 'description'], 'safe'],
         ];
     }
 
@@ -40,7 +40,6 @@ class TaskSearch extends Task
         $query = Task::find();
 
         // add conditions that should always apply here
-        $query->joinWith(['project'])
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -48,24 +47,16 @@ class TaskSearch extends Task
 
         $this->load($params);
 
-        $dataProvider->sort->attributes['project'] = [
-            // The tables are the ones our relation are configured to
-            // in my case they are prefixed with "tbl_"
-            'asc' => ['Project.title' => SORT_ASC],
-            'desc' => ['Project.title' => SORT_DESC],
-        ];
-
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
-
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'project_id' => $this->project,
+            'project_id' => $this->project_id,
             'executor_id' => $this->executor_id,
             'started_at' => $this->started_at,
             'completed_at' => $this->completed_at,
