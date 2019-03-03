@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use Yii;
 use common\models\User;
@@ -34,7 +34,7 @@ class UserController extends Controller
                         'roles' => ['@'],
                     ],
                 ],
-            ],
+            ]
         ];
     }
 
@@ -45,8 +45,6 @@ class UserController extends Controller
     public function actionIndex() {
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->pagination->pageSize = 5;
-
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -75,7 +73,6 @@ class UserController extends Controller
      */
     public function actionCreate() {
         $model = new User();
-        $model->setScenario(User::SCENARIO_INSERT);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -97,7 +94,6 @@ class UserController extends Controller
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-        $model->setScenario(User::SCENARIO_UPDATE);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

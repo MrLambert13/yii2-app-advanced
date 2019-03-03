@@ -1,58 +1,63 @@
 <aside class="main-sidebar">
 
-    <section class="sidebar">
+  <section class="sidebar">
 
 
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-              <span class="input-group-btn">
+    <!-- search form -->
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+        <span class="input-group-btn">
                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
-            </div>
-        </form>
-        <!-- /.search form -->
+      </div>
+    </form>
+    <!-- /.search form -->
 
-        <?= dmstr\widgets\Menu::widget(
-            [
-                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    [
-                        'label' => 'Some tools',
-                        'icon' => 'share',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ]
-        ) ?>
+      <?= dmstr\widgets\Menu::widget(
+          [
+              'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
+              'items' => [
+                  ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                  ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                  ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                  ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                  [
+                      'label' => 'Models',
+                      'icon' => 'share',
+                      'url' => '#',
+                      'items' => [
+                          [
+                              'label' => 'Users',
+                              'icon' => 'user',
+                              'items' => [
+                                  ['label' => 'Show All', 'icon' => 'eye', 'url' => '/user/index',],
+                                  ['label' => 'Create', 'icon' => 'plus', 'url' => '/user/create',],
+                              ],
+                          ],
+                          [
+                              'label' => 'Tasks',
+                              'icon' => 'tasks',
+                              'items' => [
+                                  ['label' => 'Show All', 'icon' => 'eye', 'url' => '/task/index',],
+                                  ['label' => 'Create', 'icon' => 'plus', 'url' => '/task/create',],
+                              ],
+                          ],
+                          [
+                              'label' => 'Project',
+                              'icon' => 'product-hunt',
+                              'items' => [
+                                  ['label' => 'Show All', 'icon' => 'eye', 'url' => '/user/index',],
+                                  ['label' => 'create', 'icon' => 'plus', 'url' => '/user/create',],
+                              ],
+                          ],
+                      ],
+                  ],
+              ],
+          ]
+      ) ?>
 
-    </section>
+  </section>
 
 </aside>

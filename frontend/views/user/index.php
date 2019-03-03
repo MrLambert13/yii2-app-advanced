@@ -6,7 +6,7 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\search\UserSearch */
+/* @var $searchModel frontend\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Users';
@@ -32,13 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             'email:email',
-            //'avatar',
             [
                 'attribute' => 'status',
-                'filter' => \common\models\User::STATUS_LABELS,
                 'value' => function (\common\models\User $model) {
                     return \common\models\User::STATUS_LABELS[$model->status];
-                }
+                },
+                'filter' => \common\models\User::STATUS_LABELS,
             ],
             [
                 'attribute' => 'created_date',

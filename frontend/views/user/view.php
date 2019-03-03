@@ -13,6 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">
 
+  <h1><?= Html::encode($this->title) ?></h1>
+
   <p>
       <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
       <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -23,10 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
           ],
       ]) ?>
   </p>
-  <img
-    src="<?= Yii::$app->user->identity->getThumbUploadUrl('avatar', \common\models\User::AVATAR_PREVIEW); ?>"
-    class="center-block "
-    alt="User Image"/>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -39,8 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'access_token',
             'avatar',
             'status',
-            'created_at:datetime',
-            'updated_at:datetime',
+            'created_at',
+            'updated_at',
         ],
     ]) ?>
 

@@ -19,7 +19,9 @@ use yii\web\IdentityInterface;
  * @property string    $auth_key
  * @property integer   $status
  * @property integer   $created_at
+ * @property integer   $created_date
  * @property integer   $updated_at
+ * @property integer   $updated_date
  * @property string    $password
  * @property Task[]    $createdTasks
  * @property Task[]    $activedTasks
@@ -29,10 +31,15 @@ use yii\web\IdentityInterface;
  * @property Project[] $updatedProjects
  * @property Project[] $projectUsers
  * @property Project[] $accessedProjects
+ * @mixin \mohorev\file\UploadImageBehavior
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     private $password;
+    public $created_date;
+    public $created_date_end;
+    public $updated_date;
+    public $updated_date_end;
 
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
@@ -40,7 +47,6 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_LABELS = [
         self::STATUS_ACTIVE => 'Active',
         self::STATUS_DELETED => 'Deleted',
-
     ];
     const SCENARIO_INSERT = 'insert';
     const SCENARIO_UPDATE = 'update';
@@ -71,9 +77,8 @@ class User extends ActiveRecord implements IdentityInterface
             TimestampBehavior::className(),
             [
                 'class' => \mohorev\file\UploadImageBehavior::class,
-                'attribute' => 'image',
+                'attribute' => 'avatar',
                 'scenarios' => [self::SCENARIO_UPDATE, self::SCENARIO_INSERT],
-                //'placeholder' => '@app/modules/user/assets/images/userpic.jpg',
                 'path' => '@frontend/web/upload/user/{id}',
                 'url' => Yii::$app->params['front.scheme']
                     . Yii::$app->params['front.domain']
@@ -92,20 +97,32 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules() {
         return [
             [['username', 'email'], 'required'],
+            [['username', 'email'], 'trim'],
+            [['username', 'email'], 'unique'],
             ['email', 'email'],
-            //[['password'], 'required', 'except' => [self::SCENARIO_UPDATE]],
+            [['password'], 'required', 'except' => [self::SCENARIO_UPDATE]],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => self::STATUSES],
             [['username', 'email', 'auth_key', 'password'], 'safe'],
-            ['avatar', 'image', 'extensions' => 'jpg, jpeg, gif, png, tiff', 'on' => [self::SCENARIO_UPDATE, self::SCENARIO_INSERT]],
-            [['username', 'email', 'avatar'], 'string', 'max' => 255],
-            [['username'], 'unique'],
-            [['email'], 'unique'],
+            ['avatar', 'image',
+                'extensions' => 'jpg, jpeg, gif, png, tiff',
+                'on' => [self::SCENARIO_UPDATE, self::SCENARIO_INSERT],
+                'minWidth' => 30,
+                'maxWidth' => 600,
+                'minHeight' => 30,
+                'maxHeight' => 600],
+            [['username', 'email'], 'string', 'max' => 255],
         ];
     }
 
     public function beforeSave($insert) {
-        $this->generateAuthKey();
+        if (parent::beforeSave($insert)) {
+            if ($insert) {
+                $this->generateAuthKey();
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
