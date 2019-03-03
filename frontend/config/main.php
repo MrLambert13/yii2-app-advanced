@@ -48,8 +48,8 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
                 '<controller:[\w-]+>s' => '<controller>/index',
-                '<controller:[\w-]+>s/<id:\d+>' => '<controller>/view',
-                '<controller:[\w-]+>s/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:[\w-]+>/<id:\d+>' => '<controller>/view',
+                '<controller:[\w-]+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<action:\w+>' => '/site/<action>',
 
             ],
