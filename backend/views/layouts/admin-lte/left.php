@@ -25,7 +25,7 @@
                   ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                   [
                       'label' => 'Models',
-                      'icon' => 'share',
+                      'icon' => 'free-code-camp',
                       'url' => '#',
                       'items' => [
                           [
