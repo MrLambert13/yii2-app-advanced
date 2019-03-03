@@ -25,7 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
           ],
       ]) ?>
   </p>
-
+  <img
+    src="<?= Yii::$app->user->identity->getThumbUploadUrl('avatar', \common\models\User::AVATAR_PREVIEW); ?>"
+    class="center-block "
+    alt="User Image"/>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -38,8 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'access_token',
             'avatar',
             'status',
-            'created_at',
-            'updated_at',
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
 
