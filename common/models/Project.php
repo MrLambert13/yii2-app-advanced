@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use lhs\Yii2SaveRelationsBehavior\SaveRelationsBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
@@ -22,13 +23,14 @@ use yii\behaviors\TimestampBehavior;
  */
 class Project extends \yii\db\ActiveRecord
 {
+    const RELATION_PROJECT_USERS = 'projectUsers';
     const RELATION_TASKS = 'tasks';
-    const STATUS_COMPLETED = 0;
-    const STATUS_ACTIVE = 10;
-    const STATUSES = [self::STATUS_ACTIVE, self::STATUS_COMPLETED];
+    const STATUS_NOTACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUSES = [self::STATUS_ACTIVE, self::STATUS_NOTACTIVE];
     const STATUS_LABELS = [
         self::STATUS_ACTIVE => 'Active',
-        self::STATUS_COMPLETED => 'Completed',
+        self::STATUS_NOTACTIVE => 'Not active',
     ];
 
     /**
@@ -50,6 +52,10 @@ class Project extends \yii\db\ActiveRecord
                 'createdByAttribute' => 'creator_id',
                 'updatedByAttribute' => 'updater_id',
             ],
+            'saveRelations' => [
+                'class' => SaveRelationsBehavior::class,
+                'relations' => [self::RELATION_PROJECT_USERS],
+            ],
         ];
     }
 
@@ -60,8 +66,9 @@ class Project extends \yii\db\ActiveRecord
         return [
             [['title', 'description'], 'required'],
             [['description'], 'string'],
-            [['active', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
-            ['active', 'default', 'value' => 0],
+            [['creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
+            ['active', 'default', 'value' => self::STATUS_ACTIVE],
+            ['active', 'in', 'range' => self::STATUSES],
             [['title'], 'string', 'max' => 255],
             [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator_id' => 'id']],
             [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updater_id' => 'id']],

@@ -95,7 +95,7 @@ class ProjectController extends Controller
     public function actionUpdate($id) {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($this->loadModel($model) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -134,5 +134,16 @@ class ProjectController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    private function loadModel(Project $model) {
+        $data = Yii::$app->request->post($model->formName());
+        $projectUsers = $data[Project::RELATION_PROJECT_USERS] ?? null;
+        if ($projectUsers !== null) {
+            $model->projectUsers = $projectUsers === '' ? [] : $projectUsers;
+        }
+
+
+        return $model->load(Yii::$app->request->post());
     }
 }
