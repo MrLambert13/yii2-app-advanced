@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-  "content-hash": "bb20169d8d706a9d518232592716f312",
+  "content-hash": "2eb4e257b16a26cc05c5c8bb44383ecc",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1139,6 +1139,56 @@
         "time": "2018-11-05T12:32:36+00:00"
       },
       {
+        "name": "la-haute-societe/yii2-save-relations-behavior",
+        "version": "dev-master",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/la-haute-societe/yii2-save-relations-behavior.git",
+          "reference": "1afd088dbf20fa110389b14986c7ac777fcbbd60"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/la-haute-societe/yii2-save-relations-behavior/zipball/1afd088dbf20fa110389b14986c7ac777fcbbd60",
+          "reference": "1afd088dbf20fa110389b14986c7ac777fcbbd60",
+          "shasum": ""
+        },
+        "require": {
+          "yiisoft/yii2": ">=2.0.14"
+        },
+        "require-dev": {
+          "phpunit/phpunit": "4.8.36"
+        },
+        "type": "yii2-extension",
+        "autoload": {
+          "psr-4": {
+            "lhs\\Yii2SaveRelationsBehavior\\": "src/"
+          }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+          "MIT"
+        ],
+        "authors": [
+          {
+            "name": "Alban Jubert",
+            "email": "alban@lahautesociete.com"
+          }
+        ],
+        "description": "Validate and save automatically related Active Record models.",
+        "keywords": [
+          "Behavior",
+          "active-query",
+          "active-record",
+          "database",
+          "extension",
+          "has-many",
+          "has-one",
+          "relations",
+          "yii2"
+        ],
+        "time": "2018-11-11T15:31:57+00:00"
+      },
+      {
         "name": "mohorev/yii2-upload-behavior",
         "version": "dev-master",
         "source": {
@@ -1827,12 +1877,12 @@
         "source": {
           "type": "git",
           "url": "https://github.com/symfony/mime.git",
-          "reference": "8177d68fb3bad78d1b9444eca28921ccdec7c961"
+          "reference": "4899a036c91d1bf959283e7dead8fd5615367d31"
         },
         "dist": {
           "type": "zip",
-          "url": "https://api.github.com/repos/symfony/mime/zipball/8177d68fb3bad78d1b9444eca28921ccdec7c961",
-          "reference": "8177d68fb3bad78d1b9444eca28921ccdec7c961",
+          "url": "https://api.github.com/repos/symfony/mime/zipball/4899a036c91d1bf959283e7dead8fd5615367d31",
+          "reference": "4899a036c91d1bf959283e7dead8fd5615367d31",
           "shasum": ""
         },
         "require": {
@@ -1878,7 +1928,7 @@
           "mime",
           "mime-type"
         ],
-        "time": "2019-03-02T14:10:47+00:00"
+        "time": "2019-03-04T20:36:41+00:00"
       },
       {
             "name": "symfony/polyfill-iconv",
@@ -2121,12 +2171,12 @@
           "source": {
             "type": "git",
             "url": "https://github.com/symfony/routing.git",
-            "reference": "19fcb1ab12e554b1702bcf2d4c61f62041f5297c"
+            "reference": "1a19ff23a349da4cffee654594983d092ff1443f"
           },
           "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/routing/zipball/19fcb1ab12e554b1702bcf2d4c61f62041f5297c",
-            "reference": "19fcb1ab12e554b1702bcf2d4c61f62041f5297c",
+            "url": "https://api.github.com/repos/symfony/routing/zipball/1a19ff23a349da4cffee654594983d092ff1443f",
+            "reference": "1a19ff23a349da4cffee654594983d092ff1443f",
             "shasum": ""
           },
           "require": {
@@ -2149,7 +2199,6 @@
           "suggest": {
             "doctrine/annotations": "For using the annotation loader",
             "symfony/config": "For using the all-in-one router or any loader",
-            "symfony/dependency-injection": "For loading routes from a service",
             "symfony/expression-language": "For using expression matching",
             "symfony/http-foundation": "For using a Symfony Request object",
             "symfony/yaml": "For using the YAML loader"
@@ -2190,7 +2239,56 @@
             "uri",
             "url"
           ],
-          "time": "2019-02-23T16:20:51+00:00"
+          "time": "2019-03-04T20:07:39+00:00"
+        },
+      {
+        "name": "unclead/yii2-multiple-input",
+        "version": "2.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/unclead/yii2-multiple-input.git",
+          "reference": "753e7be9c6c6a4f90c70d3be8950d4c83b64dd54"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/unclead/yii2-multiple-input/zipball/753e7be9c6c6a4f90c70d3be8950d4c83b64dd54",
+          "reference": "753e7be9c6c6a4f90c70d3be8950d4c83b64dd54",
+          "shasum": ""
+        },
+        "require": {
+          "php": ">=5.4.0",
+          "yiisoft/yii2": ">=2.0.13"
+        },
+        "require-dev": {
+          "phpunit/phpunit": "5.7.*"
+        },
+        "type": "yii2-extension",
+        "autoload": {
+          "psr-4": {
+            "unclead\\multipleinput\\examples\\": "examples/",
+            "unclead\\multipleinput\\": "src/",
+            "unclead\\multipleinput\\tests\\": "tests/"
+          }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+          "BSD-3-Clause"
+        ],
+        "authors": [
+          {
+            "name": "Eugene Tupikov",
+            "email": "unclead.nsk@gmail.com"
+          }
+        ],
+        "description": "Widget for handle multiple inputs for an attribute of Yii2 framework model",
+        "keywords": [
+          "yii2",
+          "yii2 array input",
+          "yii2 multiple field",
+          "yii2 multiple input",
+          "yii2 tabular input"
+        ],
+        "time": "2019-02-02T07:38:08+00:00"
         },
       {
             "name": "yiisoft/yii2",
@@ -2198,12 +2296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-              "reference": "a50a31b3487dbb4102dc9a8fc7194225eba0112d"
+              "reference": "2ae5b183dadbc50e8ea2c75f0785579ae9615c41"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/a50a31b3487dbb4102dc9a8fc7194225eba0112d",
-              "reference": "a50a31b3487dbb4102dc9a8fc7194225eba0112d",
+              "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/2ae5b183dadbc50e8ea2c75f0785579ae9615c41",
+              "reference": "2ae5b183dadbc50e8ea2c75f0785579ae9615c41",
                 "shasum": ""
             },
             "require": {
@@ -2290,7 +2388,7 @@
                 "framework",
                 "yii2"
             ],
-        "time": "2019-02-28T10:09:27+00:00"
+        "time": "2019-03-05T15:11:27+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -5094,7 +5192,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+      "php": ">=5.4"
     },
     "platform-dev": []
 }

@@ -32,7 +32,7 @@ return [
             'name' => 'advanced-frontend',
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            //'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
@@ -40,11 +40,12 @@ return [
                 ],
                 [
                     'class' => 'yii\log\FileTarget',
-                    'logFile' => "@runtime\log\auth.log",
+                    'logFile' => '@runtime/logs/auth.log',
                     'categories' => ['auth'],
                     'logVars' => [],
 
-                ],],
+                ],
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
