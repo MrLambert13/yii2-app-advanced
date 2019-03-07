@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'Accessed users',
-                'value' => join(', ', $accessedUsers),
+                'value' => $accessedUsers ? join(', ', $accessedUsers) : 'No access',
             ],
         ],
     ]) ?>
