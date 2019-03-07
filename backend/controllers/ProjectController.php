@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use common\models\Project;
 use common\models\search\ProjectSearch;
@@ -46,6 +47,7 @@ class ProjectController extends Controller
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -61,8 +63,12 @@ class ProjectController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id) {
+        $currentProject = Project::findOne($id);
+        $accessedUsers = $currentProject->getAccessedUsers()->select('username')->column();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'accessedUsers' => $accessedUsers,
         ]);
     }
 
@@ -72,7 +78,9 @@ class ProjectController extends Controller
      * @return mixed
      */
     public function actionCreate() {
+
         $model = new Project();
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -94,6 +102,7 @@ class ProjectController extends Controller
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        $modelUsers = User::find()->select('username')->indexBy('id')->column();
 
         if ($this->loadModel($model) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -101,6 +110,7 @@ class ProjectController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'users' => $modelUsers,
         ]);
     }
 

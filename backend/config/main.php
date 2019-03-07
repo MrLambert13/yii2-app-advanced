@@ -21,17 +21,27 @@ return [
             'identityClass' => common\models\User::class,
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'on ' . \yii\web\User::EVENT_AFTER_LOGIN => function () {
+                Yii::info('Success', 'auth');
+            },
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            //'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
+                ],
+                [
+                    'class' => yii\log\FileTarget::class,
+                    'logFile' => '@runtime/logs/auth.log',
+                    'categories' => ['auth'],
+                    'logVars' => [],
+
                 ],
             ],
         ],

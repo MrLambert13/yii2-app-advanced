@@ -29,7 +29,11 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'status')->dropDownList(\common\models\User::STATUS_LABELS) ?>
 
-    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-2">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
+  </div>
 
     <?php ActiveForm::end(); ?>
 
