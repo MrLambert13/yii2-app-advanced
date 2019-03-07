@@ -47,6 +47,7 @@ class ProjectController extends Controller
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -62,8 +63,12 @@ class ProjectController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id) {
+        $currentProject = Project::findOne($id);
+        $sharedUsers = $currentProject->getSharedUsers()->select('username')->column();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'sharedUsers' => $sharedUsers,
         ]);
     }
 

@@ -5,6 +5,8 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Project */
+/* @var $sharedUsers \common\models\User[] */
+
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
@@ -43,6 +45,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'updater.username:text:Updater',
             'created_at:datetime',
             'updated_at:datetime',
+
+            [
+                'attribute' => 'Shared users',
+                'value' => join(', ', $sharedUsers),
+            ],
         ],
     ]) ?>
 

@@ -18,12 +18,14 @@ use yii\behaviors\TimestampBehavior;
  * @property int           $updated_at
  * @property User          $creator
  * @property User          $updater
+ * @property User[]        $sharedUsers
  * @property ProjectUser[] $projectUsers
  * @property Task[]        $tasks
  */
 class Project extends \yii\db\ActiveRecord
 {
     const RELATION_PROJECT_USERS = 'projectUsers';
+    const RELATION_SHARED_USERS = 'projectUsers';
     const RELATION_TASKS = 'tasks';
     const STATUS_NOTACTIVE = 0;
     const STATUS_ACTIVE = 1;
@@ -120,6 +122,14 @@ class Project extends \yii\db\ActiveRecord
      */
     public function getTasks() {
         return $this->hasMany(Task::className(), ['project_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSharedUsers() {
+        return $this->hasMany(User::className(), ['id' => 'user_id'])
+            ->via('projectUsers');
     }
 
     /**
