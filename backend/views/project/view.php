@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Project */
-/* @var $sharedUsers \common\models\User[] */
+/* @var $accessedUsers \common\models\User[] */
 
 
 $this->title = $model->title;
@@ -47,8 +47,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at:datetime',
 
             [
-                'attribute' => 'Shared users',
-                'value' => join(', ', $sharedUsers),
+                'attribute' => 'Accessed users',
+                'value' => join(', ', $accessedUsers),
             ],
         ],
     ]) ?>

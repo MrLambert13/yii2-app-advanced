@@ -64,11 +64,11 @@ class ProjectController extends Controller
      */
     public function actionView($id) {
         $currentProject = Project::findOne($id);
-        $sharedUsers = $currentProject->getSharedUsers()->select('username')->column();
+        $accessedUsers = $currentProject->getAccessedUsers()->select('username')->column();
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'sharedUsers' => $sharedUsers,
+            'accessedUsers' => $accessedUsers,
         ]);
     }
 

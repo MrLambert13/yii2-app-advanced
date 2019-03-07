@@ -16,7 +16,7 @@ class TestController extends Controller
      */
     public function actionIndex() {
         $model = Project::findOne(1);
-        var_dump($model->getSharedUsers()->select('username')->column());
+        var_dump($model->getAccessedUsers()->select('username')->column());
         return $this->renderContent('Hello from Backend test page');
     }
 
