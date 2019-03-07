@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use common\models\Project;
 use common\models\search\ProjectSearch;
@@ -72,7 +73,9 @@ class ProjectController extends Controller
      * @return mixed
      */
     public function actionCreate() {
+
         $model = new Project();
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -94,6 +97,7 @@ class ProjectController extends Controller
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        $modelUsers = User::find()->select('username')->indexBy('id')->column();
 
         if ($this->loadModel($model) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -101,6 +105,7 @@ class ProjectController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'users' => $modelUsers,
         ]);
     }
 

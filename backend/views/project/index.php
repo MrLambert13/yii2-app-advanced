@@ -56,11 +56,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],
-
-            [
-                'attribute' => 'ProjectUsers',
-                'value' => projec
-            ],
         ],
     ]); ?>
 
