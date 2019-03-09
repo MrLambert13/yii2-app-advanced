@@ -133,6 +133,13 @@ class Project extends \yii\db\ActiveRecord
     }
 
     /**
+     * @return array
+     */
+    public function getUsersData() {
+        return $this->getProjectUsers()->select('role')->indexBy('user_id')->column();
+    }
+
+    /**
      * {@inheritdoc}
      * @return \common\models\query\ProjectQuery the active query used by this AR class.
      */
