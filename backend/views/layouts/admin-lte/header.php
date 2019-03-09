@@ -195,7 +195,7 @@ use yii\helpers\Html;
               <div class="pull-left">
                   <?= Html::a(
                       'Profile',
-                      ['/user/' . Yii::$app->user->id],
+                      ['/user/update/' . Yii::$app->user->id],
                       ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                   ) ?>
               </div>

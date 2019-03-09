@@ -8,10 +8,12 @@ use yii\base\Component;
 class EmailService extends Component
 {
 
-    public function send($to, $subject, $views, $data) {
+    public function send($to, $subject, $viewHTML, $viewText, $data) {
         return \Yii::$app
             ->mailer
-            ->compose($views, $data)
+            ->compose(
+                ['html' => $viewHTML, $viewText],
+                $data)
             ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
             ->setTo($to)
             ->setSubject($subject)
