@@ -12,7 +12,7 @@ class EmailService extends Component
         return \Yii::$app
             ->mailer
             ->compose(
-                ['html' => $viewHTML, $viewText],
+                ['html' => $viewHTML, 'text' => $viewText],
                 $data)
             ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
             ->setTo($to)
