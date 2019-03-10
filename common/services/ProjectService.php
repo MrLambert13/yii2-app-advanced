@@ -7,13 +7,19 @@ use common\models\User;
 use yii\base\Component;
 use yii\base\Event;
 
-
+/**
+ * Class AssignRoleEvent
+ * @package common\services
+ */
 class AssignRoleEvent extends Event
 {
     public $project;
     public $user;
     public $role;
 
+    /**
+     * @return array
+     */
     public function dump() {
         return [
             'project' => $this->project->id,
@@ -23,6 +29,10 @@ class AssignRoleEvent extends Event
     }
 }
 
+/**
+ * Class ProjectService
+ * @package common\services
+ */
 class ProjectService extends Component
 {
     const EVENT_ASSIGN_ROLE = 'event_assign_role';
@@ -41,7 +51,12 @@ class ProjectService extends Component
     //    return $task->save();
     //}
 
-    public function assignRole(Project $project, User $user, $role) {
+    /**
+     * @param Project $project
+     * @param User    $user
+     * @param string  $role
+     */
+    public function assignRole(Project $project, User $user, string $role) {
         $event = new AssignRoleEvent();
         $event->project = $project;
         $event->user = $user;

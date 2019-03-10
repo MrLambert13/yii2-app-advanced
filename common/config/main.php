@@ -12,27 +12,21 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => yii\caching\FileCache::class,
+        ],
+        'notificationService' => [
+            'class' => NotificationService::class,
+        ],
+        'emailService' => [
+            'class' => EmailService::class,
         ],
         'projectService' => [
             'class' => ProjectService::class,
             'on ' . ProjectService::EVENT_ASSIGN_ROLE => function (\common\services\AssignRoleEvent $e) {
-                //Yii::info(ProjectService::EVENT_ASSIGN_ROLE, '_');
-                //$views = ['html' => 'assignRoleToProject-html', 'text' => 'assignRoleToProject-text'];
-                //$data = ['user' => $e->user, 'project' => $e->project, 'role' => $e->role];
-                //Yii::$app->emailService->send($e->user->email, 'New role ' . $e->role, $views, $data);
-
-                Yii::$app->notificationService->sendAboutNewProjectRole($e->user, $e->project, $e->role);
+                Yii::$app->notificationService->sendMail($e->user, $e->project, $e->role);
             }
         ],
-        'notificationService' => [
-            'class' => NotificationService::class,
 
-        ],
-        'emailService' => [
-            'class' => EmailService::class,
-
-        ],
     ],
     'modules' => [
         'chat' => [

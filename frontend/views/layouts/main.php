@@ -47,7 +47,7 @@ AppAsset::register($this);
     } else {
         $menuItems[] = ['label' => 'Tasks', 'url' => ['/task/index']];
         $menuItems[] = ['label' => 'Projects', 'url' => ['/project/index']];
-        $menuItems[] = ['label' => 'Profile', 'url' => ['/user/update/' . Yii::$app->user->id]];
+        $menuItems[] = ['label' => 'Profile', 'url' => ['/user/profile']];
         if (Yii::$app->user->id == \common\models\User::ADMIN_ID) {
             $menuItems[] = ['label' => 'Users', 'url' => ['/user/index']];
         }
