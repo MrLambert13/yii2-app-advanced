@@ -29,6 +29,9 @@ return [
 
     ],
     'modules' => [
+        'comment' => [
+            'class' => 'yii2mod\comments\Module',
+        ],
         'chat' => [
             'class' => common\modules\chat\Module::class,
         ],
