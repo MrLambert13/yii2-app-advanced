@@ -13,6 +13,12 @@ use yii\base\Component;
  */
 class NotificationService extends Component
 {
+    protected $emailService;
+
+    public function __construct(EmainInterface $emailService, array $config = []) {
+        $this->emailService = $emailService;
+        parent::__construct($config);
+    }
 
     /**
      * @param User    $user
@@ -25,6 +31,7 @@ class NotificationService extends Component
         $viewHTML = 'assignRoleToProject-html';
         $viewText = 'assignRoleToProject-text';
         $data = ['user' => $user, 'project' => $project, 'role' => $role];
-        Yii::$app->emailService->send($to, $subject, $viewHTML, $viewText, $data);
+        //Yii::$app->emailService->send($to, $subject, $viewHTML, $viewText, $data);
+        $this->emailService->send($to, $subject, $viewHTML, $viewText, $data);
     }
 }
