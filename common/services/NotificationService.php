@@ -15,7 +15,7 @@ class NotificationService extends Component
 {
     protected $emailService;
 
-    public function __construct(EmainInterface $emailService, array $config = []) {
+    public function __construct(EmailInterface $emailService, array $config = []) {
         $this->emailService = $emailService;
         parent::__construct($config);
     }

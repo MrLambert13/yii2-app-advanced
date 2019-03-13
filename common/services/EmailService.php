@@ -8,7 +8,7 @@ use yii\base\Component;
  * Class EmailService
  * @package common\services
  */
-class EmailService extends Component implements EmailInteface
+class EmailService extends Component implements EmailInterface
 
 {
 
