@@ -39,8 +39,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => \common\models\Project::STATUS_LABELS,
             ],
-            'creator.username:text:Creator',
-            'updater.username:text:Updater',
+            [
+                'attribute' => 'Creator',
+                //TODO createdBy
+                'value' => $model->createdBy->username,
+            ],
+            [
+                'attribute' => 'Updater',
+                //TODO updatedBy
+                'value' => $model->updatedBy->username,
+            ],
             'created_at:datetime',
             'updated_at:datetime',
         ],

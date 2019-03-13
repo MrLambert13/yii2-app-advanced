@@ -26,36 +26,35 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            'project.title:text:Project',
             'title',
-            [
-                'attribute' => 'description',
-                'format' => 'ntext',
-                'value' => function (\common\models\Task $model) {
-                    return mb_substr($model->description, 0, 50);
-                }
-            ],
-            [
-                'attribute' => 'Project',
-                'value' => 'project.title',
-            ],
-            [
-                'attribute' => 'Executor',
-                'value' => 'executor.username',
-            ],
+            'description:ntext',
+            'executor.username:text:Executor',
             'started_at:datetime',
             'completed_at:datetime',
-
-            [
-                'attribute' => 'Updater',
-                'value' => 'updater.username',
-            ],
+            'creator.username:text:Creator',
+            'updater.username:text:Updater',
             'created_at:datetime',
             'updated_at:datetime',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete} {take}',
+                'buttons' => [
+                    'take' => function ($url, \common\models\Task $model, $key) {
+                        $icon = \yii\bootstrap\Html::icon('hand-right');
+                        return Html::a($icon, ['task/take', 'id' => $model->id], ['data' => [
+                            'confirm' => 'Do you take task?',
+                            'method' => 'post',
+                        ]]);
+                    }
+                ],
+                'visibleButtons' => [
+                    'update' => function (\common\models\Task $model, $key, $index) {
+                        return Yii::$app->projectService->hasRole($model->project, Yii::$app->user->identity, \common\models\ProjectUser::ROLE_MANAGER);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 

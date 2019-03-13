@@ -28,14 +28,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'title',
             [
-                'attribute' => 'description',
-                'format' => 'ntext',
+                'attribute' => 'title',
                 'value' => function (\common\models\Project $model) {
-                    return mb_substr($model->description, 0, 50);
-                }
+                    return Html::a($model->title, ['view', 'id' => $model->id]);
+                },
+                'format' => 'html',
+            ],
+            [
+                'attribute' => \common\models\Project::RELATION_PROJECT_USERS . '.role',
+                'value' => function (\common\models\Project $model) {
+                    return join(',', Yii::$app->projectService->getRoles($model, Yii::$app->user->identity));
+                },
+                'format' => 'html',
             ],
             [
                 'attribute' => 'active',
@@ -45,12 +50,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => \common\models\Project::STATUS_LABELS,
             ],
             [
-                'attribute' => 'Creator',
-                'value' => 'creator.username',
+                'attribute' => 'description',
+                'value' => function (\common\models\Project $model) {
+                    return mb_substr($model->description, 0, 50);
+                },
+                'format' => 'ntext',
             ],
             [
                 'attribute' => 'Updater',
-                'value' => 'updater.username',
+                'value' => function (\common\models\Project $model) {
+                    //TODO method createdBy
+                    return Html::a($model->createdBy->username, ['user/view', 'id' => $model->createdBy->id]);
+                },
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'Updater',
+                'value' => function (\common\models\Project $model) {
+                    //TODO method updatedBy
+                    return Html::a($model->updatedBy->username, ['user/view', 'id' => $model->updatedBy->id]);
+                },
+                'format' => 'html',
             ],
             'created_at:datetime',
             'updated_at:datetime',

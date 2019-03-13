@@ -37,19 +37,19 @@ class ProjectService extends Component
 {
     const EVENT_ASSIGN_ROLE = 'event_assign_role';
 
-    //public function getRoles(Project $project, User $user) {
-    //    return $project->getProjectUsers()->byUser($user->id)->select('role')->column();
-    //}
-    //
-    //public function hasRole(Project $project, User $user, $role) {
-    //    return in_array($role, $this->getRoles($project, $user));
-    //}
-    //
-    //public function takeTask(Task $task, User $user) {
-    //    $task->executor_id = $user->id;
-    //    $task->started_at = time();
-    //    return $task->save();
-    //}
+    public function getRoles(Project $project, User $user) {
+        return $project->getProjectUsers()->byUser($user->id)->select('role')->column();
+    }
+
+    public function hasRole(Project $project, User $user, $role) {
+        return in_array($role, $this->getRoles($project, $user));
+    }
+
+    public function takeTask(Task $task, User $user) {
+        $task->executor_id = $user->id;
+        $task->started_at = time();
+        return $task->save();
+    }
 
     /**
      * @param Project $project

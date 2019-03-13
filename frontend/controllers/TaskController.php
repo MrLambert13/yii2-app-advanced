@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\query\TaskQuery;
 use frontend\modules\api\models\Project;
 use Yii;
 use common\models\Task;
@@ -46,7 +47,9 @@ class TaskController extends Controller
     public function actionIndex() {
         $searchModel = new TaskSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        /** @var TaskQuery $query */
+        $query = $dataProvider->query;
+        $query->byUser(Yii::$app->user->id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
