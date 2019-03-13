@@ -51,8 +51,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'visibleButtons' => [
                     'update' => function (\common\models\Task $model, $key, $index) {
-                        return Yii::$app->projectService->hasRole($model->project, Yii::$app->user->identity, \common\models\ProjectUser::ROLE_MANAGER);
-                    }
+                        return Yii::$app->projectService->hasRole($model->project, Yii::$app->user, \common\models\ProjectUser::ROLE_MANAGER);
+                    },
+                    'delete' => function (\common\models\Task $model, $key, $index) {
+                        return Yii::$app->projectService->hasRole($model->project, Yii::$app->user, \common\models\ProjectUser::ROLE_MANAGER);
+                    },
+                    'take' => function (\common\models\Task $model, $key, $index) {
+                        return Yii::$app->projectService->hasRole($model->project, Yii::$app->user, \common\models\ProjectUser::ROLE_DEVELOPER);
+                    },
                 ],
             ],
         ],
