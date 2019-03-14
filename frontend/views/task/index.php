@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'buttons' => [
                     'take' => function ($url, \common\models\Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('hand-right');
-                        Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
                         return Html::a($icon, ['view', 'id' => $model->id], ['data' => [
                             'confirm' => 'Do you take task?',
                             'method' => 'post',
@@ -40,7 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                     'pass' => function ($url, \common\models\Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('glyphicon-ok');
-                        Yii::$app->taskService->canComplete($model);
                         return Html::a($icon, ['tasks'], ['data' => [
                             'confirm' => 'Do you complete task?',
                             'method' => 'post',
