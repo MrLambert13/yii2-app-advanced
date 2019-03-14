@@ -39,14 +39,7 @@ class ProjectSearch extends Project
      * @return ActiveDataProvider
      */
     public function search($params) {
-        $currentUserId = Yii::$app->user->id;
-        if ($currentUserId == User::ADMIN_ID) {
-            $query = Project::find();
-        } else {
-            $query = Project::find()->byCreator($currentUserId);
-        }
-
-        // add conditions that should always apply here
+        $query = Project::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

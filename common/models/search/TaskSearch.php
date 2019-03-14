@@ -39,14 +39,7 @@ class TaskSearch extends Task
      * @return ActiveDataProvider
      */
     public function search($params) {
-        $currentUserId = Yii::$app->user->id;
-
-        if ($currentUserId == User::ADMIN_ID) {
-            $query = Task::find();
-        } else {
-            $query = Task::find()->byCreator($currentUserId);
-        }
-        // add conditions that should always apply here
+        $query = Task::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
