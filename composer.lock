@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-  "content-hash": "8f438d0053b39c957d024ce1e26861b6",
+  "content-hash": "81f40149f4d043381b71959eb43fdd4a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -147,16 +147,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "3.3.1",
+          "version": "1.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "9e8ec3d10fad04748176144f108d7355662ae75e"
+              "reference": "5e89585e0121e72ff47de177c5ef604f3089a53d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/9e8ec3d10fad04748176144f108d7355662ae75e",
-              "reference": "9e8ec3d10fad04748176144f108d7355662ae75e",
+              "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/5e89585e0121e72ff47de177c5ef604f3089a53d",
+              "reference": "5e89585e0121e72ff47de177c5ef604f3089a53d",
               "shasum": null
             },
             "type": "bower-asset",
@@ -182,22 +182,23 @@
         },
         {
           "name": "bower-asset/x-editable",
-          "version": "1.5.1",
+          "version": "dev-master",
           "source": {
             "type": "git",
             "url": "https://github.com/vitalets/x-editable.git",
-            "reference": "f32802f48a33b8a7ec9cca32eec4ca844b7d39b2"
+            "reference": "bbbd2e2b407b13fc95f966629ca4d7108ee033c8"
           },
           "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vitalets/x-editable/zipball/f32802f48a33b8a7ec9cca32eec4ca844b7d39b2",
-            "reference": "f32802f48a33b8a7ec9cca32eec4ca844b7d39b2",
+            "url": "https://api.github.com/repos/vitalets/x-editable/zipball/bbbd2e2b407b13fc95f966629ca4d7108ee033c8",
+            "reference": "bbbd2e2b407b13fc95f966629ca4d7108ee033c8",
             "shasum": null
           },
           "require": {
-            "bower-asset/jquery": ">=1.6"
+            "bower-asset/jquery": "~1.11"
           },
-          "type": "bower-asset"
+          "type": "bower-asset",
+          "time": "2017-01-10T12:37:34+00:00"
         },
       {
             "name": "bower-asset/yii2-pjax",
@@ -227,12 +228,12 @@
           "source": {
             "type": "git",
             "url": "https://github.com/ratchetphp/Ratchet.git",
-            "reference": "6bb65ffb6b7b1e4e00c503f4028d9393fe7f4852"
+            "reference": "b85c2a1f189e43f7f0861daf7ff81d016c5d6403"
           },
           "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ratchetphp/Ratchet/zipball/6bb65ffb6b7b1e4e00c503f4028d9393fe7f4852",
-            "reference": "6bb65ffb6b7b1e4e00c503f4028d9393fe7f4852",
+            "url": "https://api.github.com/repos/ratchetphp/Ratchet/zipball/b85c2a1f189e43f7f0861daf7ff81d016c5d6403",
+            "reference": "b85c2a1f189e43f7f0861daf7ff81d016c5d6403",
             "shasum": ""
           },
           "require": {
@@ -272,7 +273,7 @@
             "sockets",
             "websocket"
           ],
-          "time": "2018-12-14T02:40:51+00:00"
+          "time": "2019-03-10T17:14:50+00:00"
         },
       {
             "name": "cebe/markdown",
@@ -889,12 +890,12 @@
         "source": {
           "type": "git",
           "url": "https://github.com/avalanche123/Imagine.git",
-          "reference": "26688dafa2311c2899aca352b3ad246e031436d8"
+          "reference": "70db831f8807bf6059f7c97a0c6c8dfac5b667ed"
         },
         "dist": {
           "type": "zip",
-          "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/26688dafa2311c2899aca352b3ad246e031436d8",
-          "reference": "26688dafa2311c2899aca352b3ad246e031436d8",
+          "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/70db831f8807bf6059f7c97a0c6c8dfac5b667ed",
+          "reference": "70db831f8807bf6059f7c97a0c6c8dfac5b667ed",
           "shasum": ""
         },
         "require": {
@@ -939,7 +940,7 @@
           "image manipulation",
           "image processing"
         ],
-        "time": "2019-02-06T08:02:58+00:00"
+        "time": "2019-03-13T18:10:33+00:00"
       },
       {
         "name": "kartik-v/yii2-field-range",
@@ -1056,12 +1057,12 @@
         "source": {
           "type": "git",
           "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-          "reference": "ec7fc2c5ed76ee29c939ed6fe33bab76eb25499c"
+          "reference": "9ddb662bdf49fdb671a90853912a40418a26a0dd"
         },
         "dist": {
           "type": "zip",
-          "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/ec7fc2c5ed76ee29c939ed6fe33bab76eb25499c",
-          "reference": "ec7fc2c5ed76ee29c939ed6fe33bab76eb25499c",
+          "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/9ddb662bdf49fdb671a90853912a40418a26a0dd",
+          "reference": "9ddb662bdf49fdb671a90853912a40418a26a0dd",
           "shasum": ""
         },
         "suggest": {
@@ -1100,7 +1101,7 @@
           "widget",
           "yii2"
         ],
-        "time": "2018-12-04T03:40:27+00:00"
+        "time": "2019-03-13T17:14:54+00:00"
       },
       {
         "name": "kartik-v/yii2-widget-activeform",
@@ -2041,12 +2042,12 @@
           "source": {
             "type": "git",
             "url": "https://github.com/symfony/contracts.git",
-            "reference": "c0827ad2f3e7e4c8d7d40eba9fcc9c79a13fb759"
+            "reference": "a18689ad5f8226fe641ad9a394147a2add26b181"
           },
           "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/contracts/zipball/c0827ad2f3e7e4c8d7d40eba9fcc9c79a13fb759",
-            "reference": "c0827ad2f3e7e4c8d7d40eba9fcc9c79a13fb759",
+            "url": "https://api.github.com/repos/symfony/contracts/zipball/a18689ad5f8226fe641ad9a394147a2add26b181",
+            "reference": "a18689ad5f8226fe641ad9a394147a2add26b181",
             "shasum": ""
           },
           "require": {
@@ -2103,7 +2104,7 @@
             "interoperability",
             "standards"
           ],
-          "time": "2019-03-07T16:16:38+00:00"
+          "time": "2019-03-11T11:00:28+00:00"
         },
       {
         "name": "symfony/http-foundation",
@@ -2166,12 +2167,12 @@
         "source": {
           "type": "git",
           "url": "https://github.com/symfony/mime.git",
-          "reference": "4abf63e1a5b74ef0af81d363345c40216acdeda3"
+          "reference": "adf0c6e03d38c26759f414dcb6586a983a0d3a28"
         },
         "dist": {
           "type": "zip",
-          "url": "https://api.github.com/repos/symfony/mime/zipball/4abf63e1a5b74ef0af81d363345c40216acdeda3",
-          "reference": "4abf63e1a5b74ef0af81d363345c40216acdeda3",
+          "url": "https://api.github.com/repos/symfony/mime/zipball/adf0c6e03d38c26759f414dcb6586a983a0d3a28",
+          "reference": "adf0c6e03d38c26759f414dcb6586a983a0d3a28",
           "shasum": ""
         },
         "require": {
@@ -2217,7 +2218,7 @@
           "mime",
           "mime-type"
         ],
-        "time": "2019-03-09T16:40:15+00:00"
+        "time": "2019-03-12T18:57:21+00:00"
       },
       {
             "name": "symfony/polyfill-iconv",
@@ -3488,12 +3489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-              "reference": "16ca33ecc67a625de250f476531dfe5de4c32ff2"
+              "reference": "2145e8cd1f6f6a7cef8d4f8c8c4b4e08529e8a8d"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/doctrine/instantiator/zipball/16ca33ecc67a625de250f476531dfe5de4c32ff2",
-              "reference": "16ca33ecc67a625de250f476531dfe5de4c32ff2",
+              "url": "https://api.github.com/repos/doctrine/instantiator/zipball/2145e8cd1f6f6a7cef8d4f8c8c4b4e08529e8a8d",
+              "reference": "2145e8cd1f6f6a7cef8d4f8c8c4b4e08529e8a8d",
                 "shasum": ""
             },
             "require": {
@@ -3504,7 +3505,8 @@
                 "ext-pdo": "*",
                 "ext-phar": "*",
                 "phpbench/phpbench": "^0.13",
-                "phpstan/phpstan-shim": "^0.9.2",
+              "phpstan/phpstan-phpunit": "^0.11",
+              "phpstan/phpstan-shim": "^0.11",
                 "phpunit/phpunit": "^7.0"
             },
             "type": "library",
@@ -3535,7 +3537,7 @@
                 "constructor",
                 "instantiate"
             ],
-          "time": "2019-02-20T06:21:04+00:00"
+          "time": "2019-03-12T22:46:11+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -4948,12 +4950,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-              "reference": "c544e3c679a430414979b03562982125ede683ca"
+              "reference": "92ea0b46cb4dfaa80aba9f02d9d9532c629314ed"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/symfony/browser-kit/zipball/c544e3c679a430414979b03562982125ede683ca",
-              "reference": "c544e3c679a430414979b03562982125ede683ca",
+              "url": "https://api.github.com/repos/symfony/browser-kit/zipball/92ea0b46cb4dfaa80aba9f02d9d9532c629314ed",
+              "reference": "92ea0b46cb4dfaa80aba9f02d9d9532c629314ed",
                 "shasum": ""
             },
             "require": {
@@ -4997,7 +4999,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-          "time": "2019-02-23T15:22:31+00:00"
+          "time": "2019-03-12T20:40:15+00:00"
         },
         {
             "name": "symfony/console",
@@ -5730,7 +5732,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-      "php": ">=5.4"
+      "php": ">=7.2"
     },
     "platform-dev": []
 }

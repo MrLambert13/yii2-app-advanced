@@ -46,6 +46,7 @@ class ProjectController extends Controller
     public function actionIndex() {
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         /** @var ProjectQuery $query */
         $query = $dataProvider->query;
         $query->byUser(Yii::$app->user->id);

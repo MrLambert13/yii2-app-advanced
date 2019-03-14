@@ -14,7 +14,7 @@ class TestController extends Controller
      * @return string
      */
     public function actionIndex() {
-        return $this->renderContent('Hello from Frontend test page');
+        phpinfo();
     }
 
 }

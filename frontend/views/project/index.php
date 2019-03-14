@@ -59,16 +59,14 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'Updater',
                 'value' => function (\common\models\Project $model) {
-                    //TODO method createdBy
-                    return Html::a($model->createdBy->username, ['user/view', 'id' => $model->createdBy->id]);
+                    return Html::a($model->creator->username, ['user/view', 'id' => $model->creator->id]);
                 },
                 'format' => 'html',
             ],
             [
                 'attribute' => 'Updater',
                 'value' => function (\common\models\Project $model) {
-                    //TODO method updatedBy
-                    return Html::a($model->updatedBy->username, ['user/view', 'id' => $model->updatedBy->id]);
+                    return Html::a($model->updater->username, ['user/view', 'id' => $model->updater->id]);
                 },
                 'format' => 'html',
             ],

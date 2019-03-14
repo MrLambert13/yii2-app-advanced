@@ -11,6 +11,14 @@ return [
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'yii2mod.comments' => [
+                    'class' => yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@yii2mod/comments/messages',
+                ],
+            ],
+        ],
         'cache' => [
             'class' => yii\caching\FileCache::class,
         ],
@@ -30,7 +38,7 @@ return [
     ],
     'modules' => [
         'comment' => [
-            'class' => 'yii2mod\comments\Module',
+            'class' => yii2mod\comments\Module::class,
         ],
         'chat' => [
             'class' => common\modules\chat\Module::class,

@@ -47,6 +47,7 @@ class TaskController extends Controller
     public function actionIndex() {
         $searchModel = new TaskSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         /** @var TaskQuery $query */
         $query = $dataProvider->query;
         $query->byUser(Yii::$app->user->id);

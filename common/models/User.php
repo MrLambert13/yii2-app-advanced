@@ -324,4 +324,18 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasMany(Project::className(), ['id' => 'project_id'])
             ->via($this::RELATION_PROJECT_USERS);
     }
+
+    /**
+     * @return string|null
+     */
+    public function getAvatar() {
+        return $this->getThumbUploadUrl('avatar', self::AVATAR_ICO);
+    }
+
+
+    public function getUsername() {
+        $this->username . '[' . $this->id . ']';
+    }
+
+
 }

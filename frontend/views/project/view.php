@@ -41,17 +41,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'Creator',
-                //TODO createdBy
-                'value' => $model->createdBy->username,
+                'value' => $model->creator->username,
             ],
             [
                 'attribute' => 'Updater',
-                //TODO updatedBy
-                'value' => $model->updatedBy->username,
+                'value' => $model->updater->username,
             ],
             'created_at:datetime',
             'updated_at:datetime',
         ],
     ]) ?>
 
+    <?php echo \yii2mod\comments\widgets\Comment::widget([
+        'model' => $model,
+    ]); ?>
 </div>
