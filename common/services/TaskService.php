@@ -36,8 +36,7 @@ class TaskService extends Component
      */
     public function canTake(Task $task, User $user) {
         $idAccessToTask = Yii::$app->projectService->hasRole(Project::findOne($task->project_id), $user, ProjectUser::ROLE_DEVELOPER);
-        $isFreeTask = isset($task->executor_id);
-
+        $isFreeTask = !($task->executor_id);
         return $idAccessToTask && $isFreeTask;
     }
 
@@ -66,6 +65,7 @@ class TaskService extends Component
         try {
             $task->created_at = time();
             $task->executor_id = $user->id;
+            Yii::$app->session->setFlash('success', 'Task "' . $task->title . '" was take!');
             $transaction->commit();
         } catch (\Exception $e) {
             $transaction->rollback();
@@ -79,5 +79,6 @@ class TaskService extends Component
      */
     public function completeTask(Task $task) {
         $task->completed_at = time();
+        Yii::$app->session->setFlash('success', 'Task "' . $task->title . '" was complete!');
     }
 }

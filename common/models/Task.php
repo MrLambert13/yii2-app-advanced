@@ -19,6 +19,9 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  * @property Project $project
+ * @property User    $executor
+ * @property User    $creator
+ * @property User    $updater
  */
 class Task extends \yii\db\ActiveRecord
 {
