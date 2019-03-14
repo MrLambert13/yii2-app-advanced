@@ -3,6 +3,7 @@
 use common\services\EmailService;
 use common\services\NotificationService;
 use common\services\ProjectService;
+use common\services\TaskService;
 
 return [
     'aliases' => [
@@ -34,7 +35,9 @@ return [
                 Yii::$app->notificationService->sendMail($e->user, $e->project, $e->role);
             }
         ],
-
+        'taskService' => [
+            'class' => TaskService::class,
+        ],
     ],
     'modules' => [
         'comment' => [
