@@ -22,8 +22,6 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'avatar')->fileInput(['accept' => 'image/*'])
         ->label(Html::img($model->getThumbUploadUrl('avatar', \common\models\User::AVATAR_ICO))) ?>
 

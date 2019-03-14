@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\Task */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $listProjects common\models\Project */
+
 ?>
 
 <div class="task-form">
@@ -16,10 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?php
-    //TODO     список для выбора проекта из доступных.
-    ?>
-    <?= $form->field($model, 'project_id')->textInput(); ?>
+    <?= $form->field($model, 'project_id')->dropDownList($listProjects); ?>
 
   <div class="form-group">
       <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

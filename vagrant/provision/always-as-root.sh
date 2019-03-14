@@ -8,5 +8,6 @@ info "Provision-script user: `whoami`"
 
 info "Restart web-stack"
 service php7.1-fpm restart
+service nginx reload
 service nginx restart
 service mysql restart

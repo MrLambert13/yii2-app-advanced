@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -32,14 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'buttons' => [
                     'take' => function ($url, \common\models\Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('hand-right');
-                        return Html::a($icon, ['view', 'id' => $model->id], ['data' => [
+                        return Html::a($icon, ['task/take', 'id' => $model->id], ['data' => [
                             'confirm' => 'Do you take task?',
                             'method' => 'post',
                         ]]);
                     },
                     'pass' => function ($url, \common\models\Task $model, $key) {
-                        $icon = \yii\bootstrap\Html::icon('glyphicon-ok');
-                        return Html::a($icon, ['tasks'], ['data' => [
+                        $icon = \yii\bootstrap\Html::icon('glyphicon glyphicon-saved');
+                        return Html::a($icon, ['task/complete', 'id' => $model->id], ['data' => [
                             'confirm' => 'Do you complete task?',
                             'method' => 'post',
                         ]]);
@@ -67,7 +68,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->project->title, ['project/view', 'id' => $model->project_id]);
                 },
                 'format' => 'html',
-                //TODO фильтром со списком доступных проектов
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'project_id',
+                    ArrayHelper::map(\common\models\Project::find()->byUser(Yii::$app->user->id)->all(), 'id', 'title'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             'title',
             [
@@ -85,8 +91,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                     return 'empty';
                 },
-                'format' => 'html'
-                //TODO фильтрами в виде списка всех активных пользователей (используйте onlyActive из 2б)
+                'format' => 'html',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'executor_id',
+                    ArrayHelper::map(\common\models\User::find()->onlyActive()->all(), 'id', 'username'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             'started_at:datetime',
             'completed_at:datetime',
@@ -96,8 +107,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->creator->username, ['user/view', 'id' => $model->creator_id]);
                 },
                 'format' => 'html',
-                //TODO фильтрами в виде списка всех активных пользователей (используйте onlyActive из 2б)
-
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'creator_id',
+                    ArrayHelper::map(\common\models\User::find()->onlyActive()->all(), 'id', 'username'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             'updater.username:text:Updater',
             'created_at:datetime',

@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\User */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -15,17 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
   <h1><?= Html::encode($this->title) ?></h1>
 
-  <p>
-      <?php //TODO only self account ?>
-      <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-      <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-          'class' => 'btn btn-danger',
-          'data' => [
-              'confirm' => 'Are you sure you want to delete this item?',
-              'method' => 'post',
-          ],
-      ]) ?>
-  </p>
   <img
     src="<?= Yii::$app->user->identity->getThumbUploadUrl('avatar', \common\models\User::AVATAR_PREVIEW); ?>"
     class="center-block "
@@ -35,11 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-            //'auth_key',
-            //'password_hash',
-            //'password_reset_token',
             'email:email',
-            //'access_token',
             'avatar',
             [
                 'attribute' => 'Status',

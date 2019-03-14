@@ -11,6 +11,9 @@ use common\models\User;
 class UserQuery extends \yii\db\ActiveQuery
 {
 
+    /**
+     * @return UserQuery
+     */
     public function onlyActive() {
         return $this->andWhere(['status' => User::STATUS_ACTIVE]);
     }

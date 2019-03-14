@@ -17,7 +17,7 @@ class TaskQuery extends \yii\db\ActiveQuery
      * @return TaskQuery
      */
     public function byUser($userId, $role = null) {
-        $query = Project::find()->select('project_id')->byUser($userId, $role);
+        $query = Project::find()->select('id')->byUser($userId, $role);
         return $this->andWhere(['project_id' => $query]);
     }
 

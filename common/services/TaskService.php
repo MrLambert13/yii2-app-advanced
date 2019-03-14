@@ -50,7 +50,7 @@ class TaskService extends Component
      * @return bool
      */
     public function canComplete(Task $task, User $user) {
-        return $task->executor_id === $user->id && isset($task->completed_at);
+        return (($task->executor_id === $user->id) && !($task->completed_at));
     }
 
     /**
@@ -63,12 +63,14 @@ class TaskService extends Component
 
         $transaction = Yii::$app->db->beginTransaction();
         try {
-            $task->created_at = time();
+            $task->started_at = time();
             $task->executor_id = $user->id;
+            $task->save();
             Yii::$app->session->setFlash('success', 'Task "' . $task->title . '" was take!');
             $transaction->commit();
         } catch (\Exception $e) {
             $transaction->rollback();
+            Yii::$app->session->setFlash('warning', 'Dear friend. Task "' . $task->title . '" was not take! Please try later. We so sorry. =(');
         }
     }
 
@@ -79,6 +81,7 @@ class TaskService extends Component
      */
     public function completeTask(Task $task) {
         $task->completed_at = time();
+        $task->save();
         Yii::$app->session->setFlash('success', 'Task "' . $task->title . '" was complete!');
     }
 }

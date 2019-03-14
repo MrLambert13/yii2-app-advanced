@@ -73,6 +73,34 @@ class TaskController extends Controller
     }
 
     /**
+     * Take a task.
+     *
+     * @param integer $id
+     *
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionTake($id) {
+        $model = $this->findModel($id);
+        Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
+        return $this->redirect(['view', 'id' => $id]);
+    }
+
+    /**
+     * Complete a task.
+     *
+     * @param integer $id
+     *
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionComplete($id) {
+        $model = $this->findModel($id);
+        Yii::$app->taskService->completeTask($model);
+        return $this->redirect(['view', 'id' => $id]);
+    }
+
+    /**
      * Creates a new Task model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -80,7 +108,7 @@ class TaskController extends Controller
     public function actionCreate() {
         $model = new Task();
 
-        $listProjects = Project::find()->where(['creator_id' => Yii::$app->user->id])->select('id, title');
+        $listProjects = Project::find()->select('title')->indexBy('id')->byUser(Yii::$app->user->id)->column();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -88,8 +116,7 @@ class TaskController extends Controller
 
         return $this->render('create', [
             'model' => $model,
-            'projects' => $listProjects,
-
+            'listProjects' => $listProjects,
         ]);
     }
 

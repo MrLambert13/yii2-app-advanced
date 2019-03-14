@@ -2,6 +2,7 @@
 
 namespace common\models\search;
 
+use common\models\Project;
 use common\models\User;
 use Yii;
 use yii\base\Model;
