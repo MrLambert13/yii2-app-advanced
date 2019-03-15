@@ -84,8 +84,9 @@ class TaskController extends Controller
      */
     public function actionTake($id) {
         $model = $this->findModel($id);
-        Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
-        return $this->redirect(['view', 'id' => $id]);
+        if (Yii::$app->taskService->takeTask($model, Yii::$app->user->identity)) {
+            return $this->redirect(['view', 'id' => $id]);
+        }
     }
 
     /**
@@ -98,8 +99,9 @@ class TaskController extends Controller
      */
     public function actionComplete($id) {
         $model = $this->findModel($id);
-        Yii::$app->taskService->completeTask($model);
-        return $this->redirect(['view', 'id' => $id]);
+        if (Yii::$app->taskService->completeTask($model)) {
+            return $this->redirect(['view', 'id' => $id]);
+        }
     }
 
     /**

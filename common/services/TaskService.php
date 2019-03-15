@@ -68,9 +68,12 @@ class TaskService extends Component
             $task->save();
             Yii::$app->session->setFlash('success', 'Task "' . $task->title . '" was take!');
             $transaction->commit();
+            return true;
+            //знаю что ужасно, но так хотелось транзакцию сунуть
         } catch (\Exception $e) {
             $transaction->rollback();
             Yii::$app->session->setFlash('warning', 'Dear friend. Task "' . $task->title . '" was not take! Please try later. We so sorry. =(');
+            return false;
         }
     }
 
@@ -81,7 +84,7 @@ class TaskService extends Component
      */
     public function completeTask(Task $task) {
         $task->completed_at = time();
-        $task->save();
         Yii::$app->session->setFlash('success', 'Task "' . $task->title . '" was complete!');
+        return ($task->save());
     }
 }
