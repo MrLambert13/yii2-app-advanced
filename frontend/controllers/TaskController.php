@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\ProjectUser;
 use common\models\query\TaskQuery;
+use common\models\User;
 use frontend\modules\api\models\Project;
 use Yii;
 use common\models\Task;

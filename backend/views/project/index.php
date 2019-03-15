@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -45,12 +46,36 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => \common\models\Project::STATUS_LABELS,
             ],
             [
-                'attribute' => 'Creator',
-                'value' => 'creator.username',
+                'attribute' => 'creator',
+                'value' => function (\common\models\Project $model) {
+                    if ($model->creator) {
+                        return Html::a($model->creator->username, ['user/view', 'id' => $model->creator_id]);
+                    }
+                    return 'empty';
+                },
+                'format' => 'html',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'creator_id',
+                    ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             [
-                'attribute' => 'Updater',
-                'value' => 'updater.username',
+                'attribute' => 'updater',
+                'value' => function (\common\models\Project $model) {
+                    if ($model->updater) {
+                        return Html::a($model->updater->username, ['user/view', 'id' => $model->updater_id]);
+                    }
+                    return 'empty';
+                },
+                'format' => 'html',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'updater_id',
+                    ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             'created_at:datetime',
             'updated_at:datetime',

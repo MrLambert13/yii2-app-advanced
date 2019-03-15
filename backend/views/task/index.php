@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -39,18 +40,51 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'Project',
-                'value' => 'project.title',
+                'value' => function (\common\models\Task $model) {
+                    return Html::a($model->project->title, ['project/view', 'id' => $model->project_id]);
+                },
+                'format' => 'html',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'project_id',
+                    ArrayHelper::map(\common\models\Project::find()->all(), 'id', 'title'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             [
                 'attribute' => 'Executor',
-                'value' => 'executor.username',
+                'value' => function (\common\models\Task $model) {
+                    if ($model->executor) {
+                        return Html::a($model->executor->username, ['user/view', 'id' => $model->executor_id]);
+                    }
+                    return 'empty';
+                },
+                'format' => 'html',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'executor_id',
+                    ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             'started_at:datetime',
             'completed_at:datetime',
 
             [
-                'attribute' => 'Updater',
-                'value' => 'updater.username',
+                'attribute' => 'updater',
+                'value' => function (\common\models\Task $model) {
+                    if ($model->updater) {
+                        return Html::a($model->updater->username, ['user/view', 'id' => $model->updater_id]);
+                    }
+                    return 'empty';
+                },
+                'format' => 'html',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'updater_id',
+                    ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'),
+                    ['prompt' => '', 'class' => 'form-control form-control-sm']
+                ),
             ],
             'created_at:datetime',
             'updated_at:datetime',
