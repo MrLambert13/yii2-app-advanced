@@ -37,7 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function (\common\models\Project $model) {
                     return join(',', Yii::$app->projectService->getRoles($model, Yii::$app->user->identity));
                 },
-                'format' => 'html',
             ],
             [
                 'attribute' => 'active',
@@ -54,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'ntext',
             ],
             [
-                'attribute' => 'Updater',
+                'attribute' => 'Creator',
                 'value' => function (\common\models\Project $model) {
                     return Html::a($model->creator->username, ['user/view', 'id' => $model->creator->id]);
                 },

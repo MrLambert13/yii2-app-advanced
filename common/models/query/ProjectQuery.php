@@ -2,7 +2,9 @@
 
 namespace common\models\query;
 
+use common\models\Project;
 use common\models\ProjectUser;
+use common\services\TaskService;
 
 /**
  * This is the ActiveQuery class for [[\common\models\Project]].

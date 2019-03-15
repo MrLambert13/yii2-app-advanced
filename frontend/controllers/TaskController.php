@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\ProjectUser;
 use common\models\query\TaskQuery;
 use frontend\modules\api\models\Project;
 use Yii;
@@ -108,7 +109,7 @@ class TaskController extends Controller
     public function actionCreate() {
         $model = new Task();
 
-        $listProjects = Project::find()->select('title')->indexBy('id')->byUser(Yii::$app->user->id)->column();
+        $listProjects = Project::find()->select('title')->indexBy('id')->byUser(Yii::$app->user->id, ProjectUser::ROLE_MANAGER)->column();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
