@@ -17,7 +17,7 @@ return [
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],
-            'baseUrl' => '/',
+//            'baseUrl' => '/',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
