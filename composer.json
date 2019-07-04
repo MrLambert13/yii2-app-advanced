@@ -10,6 +10,9 @@
   "homepage": "http://www.yiiframework.com/",
   "type": "project",
   "license": "BSD-3-Clause",
+  "scripts": {
+    "post-install-cmd": "sh post-install-cmd.sh"
+  },
   "support": {
     "issues": "https://github.com/yiisoft/yii2/issues?state=open",
     "forum": "http://www.yiiframework.com/forum/",
