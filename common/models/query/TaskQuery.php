@@ -10,24 +10,9 @@ use common\models\Project;
  */
 class TaskQuery extends \yii\db\ActiveQuery
 {
-    /**
-     * @param integer     $userId
-     * @param string|null $role
-     *
-     * @return TaskQuery
-     */
     public function byUser($userId, $role = null) {
         $query = Project::find()->select('id')->byUser($userId, $role);
-        return $this->andWhere(['project_id' => $query]);
-    }
-
-    /**
-     * @param $userId integer
-     *
-     * @return mixed
-     */
-    public function byCreator($userId) {
-        return $this->andWhere(['creator_id' => $userId]);
+        return $this->andWhere(['id' => $query]);
     }
 
     /**
