@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use mohorev\file\UploadImageBehavior;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -31,7 +32,7 @@ use yii\web\IdentityInterface;
  * @property Project[] $updatedProjects
  * @property Project[] $projectUsers
  * @property Project[] $accessedProjects
- * @mixin \mohorev\file\UploadImageBehavior
+ * @mixin UploadImageBehavior
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -77,7 +78,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             TimestampBehavior::className(),
             [
-                'class' => \mohorev\file\UploadImageBehavior::class,
+                'class' => UploadImageBehavior::class,
                 'attribute' => 'avatar',
                 'scenarios' => [self::SCENARIO_UPDATE, self::SCENARIO_INSERT],
                 'path' => '@frontend/web/upload/user/{id}',
@@ -334,7 +335,7 @@ class User extends ActiveRecord implements IdentityInterface
 
 
     public function getUsername() {
-        $this->username . '[' . $this->id . ']';
+        return $this->username . '[' . $this->id . ']';
     }
 
     /**
